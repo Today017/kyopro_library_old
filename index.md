@@ -1,124 +1,141 @@
 ---
 data:
   libraryCategories:
+  - name: algorithm
+    pages:
+    - icon: ':warning:'
+      path: algorithm/change_base_to_N.cpp
+      title: algorithm/change_base_to_N.cpp
+    - icon: ':warning:'
+      path: algorithm/compress_vector.cpp
+      title: algorithm/compress_vector.cpp
+    - icon: ':warning:'
+      path: algorithm/cumsum2D.cpp
+      title: algorithm/cumsum2D.cpp
+    - icon: ':warning:'
+      path: algorithm/inversion_number.cpp
+      title: algorithm/inversion_number.cpp
+    - icon: ':warning:'
+      path: algorithm/longest_increasing_subsequence_length.cpp
+      title: algorithm/longest_increasing_subsequence_length.cpp
+    - icon: ':warning:'
+      path: algorithm/mo.cpp
+      title: algorithm/mo.cpp
+  - name: data_structure
+    pages:
+    - icon: ':warning:'
+      path: data_structure/fenwick_tree.cpp
+      title: data_structure/fenwick_tree.cpp
+    - icon: ':warning:'
+      path: data_structure/multitree.cpp
+      title: data_structure/multitree.cpp
+    - icon: ':warning:'
+      path: data_structure/ruq.cpp
+      title: data_structure/ruq.cpp
+    - icon: ':warning:'
+      path: data_structure/segtree.cpp
+      title: data_structure/segtree.cpp
+    - icon: ':warning:'
+      path: data_structure/tree.cpp
+      title: data_structure/tree.cpp
   - name: .
     pages:
     - icon: ':warning:'
-      path: Eratosthenes.cpp
-      title: Eratosthenes.cpp
-    - icon: ':warning:'
-      path: bellman_ford.cpp
-      title: bellman_ford.cpp
-    - icon: ':warning:'
-      path: change_base_to_N.cpp
-      title: change_base_to_N.cpp
-    - icon: ':warning:'
-      path: compress_vector.cpp
-      title: compress_vector.cpp
-    - icon: ':warning:'
-      path: cumsum2D.cpp
-      title: cumsum2D.cpp
-    - icon: ':warning:'
       path: debug.cpp
       title: debug.cpp
+  - name: graph
+    pages:
     - icon: ':warning:'
-      path: dijkstra.cpp
-      title: dijkstra.cpp
+      path: graph/bellman_ford.cpp
+      title: graph/bellman_ford.cpp
     - icon: ':warning:'
-      path: dijkstra2.cpp
-      title: dijkstra2.cpp
+      path: graph/dijkstra.cpp
+      title: graph/dijkstra.cpp
     - icon: ':warning:'
-      path: divisors.cpp
-      title: divisors.cpp
+      path: graph/dijkstra2.cpp
+      title: graph/dijkstra2.cpp
     - icon: ':warning:'
-      path: dsu.cpp
-      title: dsu.cpp
+      path: graph/dsu.cpp
+      title: graph/dsu.cpp
     - icon: ':warning:'
-      path: extgcd.cpp
-      title: extgcd.cpp
+      path: graph/hld_graph.cpp
+      title: graph/hld_graph.cpp
     - icon: ':warning:'
-      path: fast_combination.cpp
-      title: fast_combination.cpp
+      path: graph/lowest_common_ancestor.cpp
+      title: graph/lowest_common_ancestor.cpp
     - icon: ':warning:'
-      path: fenwick_tree.cpp
-      title: fenwick_tree.cpp
+      path: graph/strongly_connected_componet.cpp
+      title: graph/strongly_connected_componet.cpp
     - icon: ':warning:'
-      path: fraction.cpp
-      title: fraction.cpp
+      path: graph/topological_sort.cpp
+      title: graph/topological_sort.cpp
     - icon: ':warning:'
-      path: hld_graph.cpp
-      title: hld_graph.cpp
+      path: graph/topological_sort2.cpp
+      title: graph/topological_sort2.cpp
     - icon: ':warning:'
-      path: inversion_number.cpp
-      title: inversion_number.cpp
+      path: graph/tree_depth.cpp
+      title: graph/tree_depth.cpp
     - icon: ':warning:'
-      path: longest_increasing_subsequence_length.cpp
-      title: longest_increasing_subsequence_length.cpp
+      path: graph/tree_diameter.cpp
+      title: graph/tree_diameter.cpp
+  - name: math
+    pages:
     - icon: ':warning:'
-      path: lowest_common_ancestor.cpp
-      title: lowest_common_ancestor.cpp
+      path: math/Eratosthenes.cpp
+      title: math/Eratosthenes.cpp
     - icon: ':warning:'
-      path: matrix.cpp
-      title: matrix.cpp
+      path: math/divisors.cpp
+      title: math/divisors.cpp
     - icon: ':warning:'
-      path: mo.cpp
-      title: mo.cpp
+      path: math/extgcd.cpp
+      title: math/extgcd.cpp
     - icon: ':warning:'
-      path: mod_combination.cpp
-      title: mod_combination.cpp
+      path: math/fast_combination.cpp
+      title: math/fast_combination.cpp
     - icon: ':warning:'
-      path: modint.cpp
-      title: modint.cpp
+      path: math/fraction.cpp
+      title: math/fraction.cpp
     - icon: ':warning:'
-      path: multitree.cpp
-      title: multitree.cpp
+      path: math/matrix.cpp
+      title: math/matrix.cpp
     - icon: ':warning:'
-      path: point.cpp
-      title: point.cpp
+      path: math/mod_combination.cpp
+      title: math/mod_combination.cpp
     - icon: ':warning:'
-      path: prime_factorize.cpp
-      title: prime_factorize.cpp
+      path: math/modint.cpp
+      title: math/modint.cpp
     - icon: ':warning:'
-      path: prime_factors.cpp
-      title: prime_factors.cpp
+      path: math/point.cpp
+      title: math/point.cpp
     - icon: ':warning:'
-      path: rolling_hash.cpp
-      title: rolling_hash.cpp
+      path: math/prime_factorize.cpp
+      title: math/prime_factorize.cpp
     - icon: ':warning:'
-      path: run_length_encoding.cpp
-      title: run_length_encoding.cpp
+      path: math/prime_factors.cpp
+      title: math/prime_factors.cpp
+  - name: others
+    pages:
     - icon: ':warning:'
-      path: ruq.cpp
-      title: ruq.cpp
+      path: others/util.cpp
+      title: others/util.cpp
+  - name: string
+    pages:
     - icon: ':warning:'
-      path: segtree.cpp
-      title: segtree.cpp
+      path: string/rolling_hash.cpp
+      title: string/rolling_hash.cpp
     - icon: ':warning:'
-      path: strongly_connected_componet.cpp
-      title: strongly_connected_componet.cpp
-    - icon: ':warning:'
-      path: topological_sort.cpp
-      title: topological_sort.cpp
-    - icon: ':warning:'
-      path: topological_sort2.cpp
-      title: topological_sort2.cpp
-    - icon: ':warning:'
-      path: tree.cpp
-      title: tree.cpp
-    - icon: ':warning:'
-      path: tree_depth.cpp
-      title: tree_depth.cpp
-    - icon: ':warning:'
-      path: tree_diameter.cpp
-      title: tree_diameter.cpp
-    - icon: ':warning:'
-      path: util.cpp
-      title: util.cpp
+      path: string/run_length_encoding.cpp
+      title: string/run_length_encoding.cpp
   verificationCategories:
   - name: .
     pages:
     - icon: ':heavy_check_mark:'
       path: example.test.cpp
       title: example.test.cpp
+  - name: test
+    pages:
+    - icon: ':x:'
+      path: test/fenwick_tree.test.cpp
+      title: test/fenwick_tree.test.cpp
 layout: toppage
 ---
