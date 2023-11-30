@@ -127,11 +127,6 @@ data:
       path: string/run_length_encoding.cpp
       title: string/run_length_encoding.cpp
   verificationCategories:
-  - name: .
-    pages:
-    - icon: ':heavy_check_mark:'
-      path: example.test.cpp
-      title: example.test.cpp
   - name: test
     pages:
     - icon: ':heavy_check_mark:'
