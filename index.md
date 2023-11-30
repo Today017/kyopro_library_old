@@ -22,7 +22,7 @@ data:
     pages:
     - icon: ':heavy_check_mark:'
       path: data_structure/fenwick_tree.cpp
-      title: data_structure/fenwick_tree.cpp
+      title: Fenwick Tree
     - icon: ':warning:'
       path: data_structure/multitree.cpp
       title: data_structure/multitree.cpp
