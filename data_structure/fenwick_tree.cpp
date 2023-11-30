@@ -1,3 +1,5 @@
+
+
 template <typename T>
 struct fenwick_tree {
 	int n;
@@ -28,3 +30,8 @@ struct fenwick_tree {
 		return sum(i, i + 1);
 	}
 };
+
+/**
+ * @brief Fenwick Tree
+ * @docs docs/data_stracture/fenwick_tree.md
+*/
