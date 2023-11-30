@@ -46,7 +46,7 @@ data:
     - icon: ':warning:'
       path: graph/dijkstra2.cpp
       title: graph/dijkstra2.cpp
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/dsu.cpp
       title: graph/dsu.cpp
     - icon: ':warning:'
@@ -125,10 +125,15 @@ data:
       path: string/run_length_encoding.cpp
       title: string/run_length_encoding.cpp
   verificationCategories:
-  - name: test
+  - name: test/data_structure/fenwick_tree
     pages:
     - icon: ':heavy_check_mark:'
-      path: test/fenwick_tree.test.cpp
-      title: test/fenwick_tree.test.cpp
+      path: test/data_structure/fenwick_tree/fenwick_tree.test.cpp
+      title: test/data_structure/fenwick_tree/fenwick_tree.test.cpp
+  - name: test/graph/dsu
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/graph/dsu/dsu.test.cpp
+      title: test/graph/dsu/dsu.test.cpp
 layout: toppage
 ---

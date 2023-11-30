@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/graph/dsu/dsu.test.cpp
+    title: test/graph/dsu/dsu.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"graph/dsu.cpp\"\n#include <bits/stdc++.h>\r\nusing namespace\
@@ -34,8 +37,9 @@ data:
   path: graph/dsu.cpp
   requiredBy: []
   timestamp: '2023-11-30 18:16:37+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/graph/dsu/dsu.test.cpp
 documentation_of: graph/dsu.cpp
 layout: document
 redirect_from:
