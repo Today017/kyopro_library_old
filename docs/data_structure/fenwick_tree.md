@@ -24,3 +24,15 @@ ac-library/fenwicktreeと仕様はほぼ同じ。
 
 #### 計算量
 - $O(\log{n})$
+
+### 区間加算1点取得をしたい場合
+```cpp
+fenwick_tree<int> ft(N + 1);
+
+// 区間加算
+ft.add(l, x);
+ft.add(r + 1, x);
+
+// 取得
+ft.sum(i + 1);
+```
