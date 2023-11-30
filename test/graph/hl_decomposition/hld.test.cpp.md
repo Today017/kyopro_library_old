@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/fenwick_tree.cpp
     title: Fenwick Tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/hl_decomposition.cpp
     title: Heavy-Light Decomposition
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/vertex_add_path_sum
@@ -65,38 +65,42 @@ data:
     }\r\n\t\treturn ret;\r\n\t}\r\n\tT operator[](int i) {\r\n\t\treturn sum(i, i\
     \ + 1);\r\n\t}\r\n};\n#line 7 \"test/graph/hl_decomposition/hld.test.cpp\"\n\n\
     int main() {\n\tint N, Q;\n\tcin >> N >> Q;\n\n\tfenwick_tree<long long> ft(N);\n\
-    \theavy_light_decomposition hld(N);\n\n\tfor (int i = 0; i < N; i++) {\n\t\tint\
-    \ a;\n\t\tcin >> a;\n\t\tft.add(i, a);\n\t}\n\tfor (int i = 0; i < N - 1; i++)\
-    \ {\n\t\tint u, v;\n\t\tcin >> u >> v;\n\t\thld.add_edge(u, v);\n\t}\n\n\thld.hld_start();\n\
-    \n\twhile (Q--) {\n\t\tint t;\n\t\tcin >> t;\n\n\t\tif (t == 0) {\n\t\t\tint p,\
-    \ x;\n\t\t\tcin >> p >> x;\n\n\t\t\tauto Update = [&](int i, int pos) {\n\t\t\t\
-    \tft.add(pos, x);\n\t\t\t};\n\n\t\t\thld.update(p, Update);\n\t\t}\n\n\t\telse\
-    \ {\n\t\t\tint u, v;\n\t\t\tcin >> u >> v;\n\n\t\t\tauto Query = [&](int x, int\
-    \ y) {\n\t\t\t\treturn ft.sum(x, y);\n\t\t\t};\n\t\t\tauto F = [&](long long a,\
-    \ long long b) {\n\t\t\t\treturn a + b;\n\t\t\t};\n\t\t\tlong long e = 0;\n\n\t\
-    \t\tcout << hld.query(u, v, Query, F, e) << '\\n';\n\t\t}\n\t}\n}\n"
-  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_path_sum\"\n\
-    #include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../graph/hl_decomposition.cpp\"\
-    \n#include \"../../../data_structure/fenwick_tree.cpp\"\n\nint main() {\n\tint\
-    \ N, Q;\n\tcin >> N >> Q;\n\n\tfenwick_tree<long long> ft(N);\n\theavy_light_decomposition\
-    \ hld(N);\n\n\tfor (int i = 0; i < N; i++) {\n\t\tint a;\n\t\tcin >> a;\n\t\t\
-    ft.add(i, a);\n\t}\n\tfor (int i = 0; i < N - 1; i++) {\n\t\tint u, v;\n\t\tcin\
-    \ >> u >> v;\n\t\thld.add_edge(u, v);\n\t}\n\n\thld.hld_start();\n\n\twhile (Q--)\
+    \theavy_light_decomposition hld(N);\n\n\tvector<int> A(N);\n\tfor (int i = 0;\
+    \ i < N; i++) {\n\t\tcin >> A[i];\n\t}\n\tfor (int i = 0; i < N - 1; i++) {\n\t\
+    \tint u, v;\n\t\tcin >> u >> v;\n\t\thld.add_edge(u, v);\n\t}\n\n\thld.hld_start();\n\
+    \tfor (int i = 0; i < N; i++) {\n\t\tauto Update = [&](int i, int pos) {\n\t\t\
+    \tft.add(pos, A[i]);\n\t\t};\n\t\thld.update(i, Update);\n\t}\n\n\twhile (Q--)\
     \ {\n\t\tint t;\n\t\tcin >> t;\n\n\t\tif (t == 0) {\n\t\t\tint p, x;\n\t\t\tcin\
     \ >> p >> x;\n\n\t\t\tauto Update = [&](int i, int pos) {\n\t\t\t\tft.add(pos,\
     \ x);\n\t\t\t};\n\n\t\t\thld.update(p, Update);\n\t\t}\n\n\t\telse {\n\t\t\tint\
     \ u, v;\n\t\t\tcin >> u >> v;\n\n\t\t\tauto Query = [&](int x, int y) {\n\t\t\t\
     \treturn ft.sum(x, y);\n\t\t\t};\n\t\t\tauto F = [&](long long a, long long b)\
     \ {\n\t\t\t\treturn a + b;\n\t\t\t};\n\t\t\tlong long e = 0;\n\n\t\t\tcout <<\
-    \ hld.query(u, v, Query, F, e) << '\\n';\n\t\t}\n\t}\n}"
+    \ hld.query(u, v, Query, F, e) << '\\n';\n\t\t}\n\t}\n}\n"
+  code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_path_sum\"\n\
+    #include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../graph/hl_decomposition.cpp\"\
+    \n#include \"../../../data_structure/fenwick_tree.cpp\"\n\nint main() {\n\tint\
+    \ N, Q;\n\tcin >> N >> Q;\n\n\tfenwick_tree<long long> ft(N);\n\theavy_light_decomposition\
+    \ hld(N);\n\n\tvector<int> A(N);\n\tfor (int i = 0; i < N; i++) {\n\t\tcin >>\
+    \ A[i];\n\t}\n\tfor (int i = 0; i < N - 1; i++) {\n\t\tint u, v;\n\t\tcin >> u\
+    \ >> v;\n\t\thld.add_edge(u, v);\n\t}\n\n\thld.hld_start();\n\tfor (int i = 0;\
+    \ i < N; i++) {\n\t\tauto Update = [&](int i, int pos) {\n\t\t\tft.add(pos, A[i]);\n\
+    \t\t};\n\t\thld.update(i, Update);\n\t}\n\n\twhile (Q--) {\n\t\tint t;\n\t\tcin\
+    \ >> t;\n\n\t\tif (t == 0) {\n\t\t\tint p, x;\n\t\t\tcin >> p >> x;\n\n\t\t\t\
+    auto Update = [&](int i, int pos) {\n\t\t\t\tft.add(pos, x);\n\t\t\t};\n\n\t\t\
+    \thld.update(p, Update);\n\t\t}\n\n\t\telse {\n\t\t\tint u, v;\n\t\t\tcin >> u\
+    \ >> v;\n\n\t\t\tauto Query = [&](int x, int y) {\n\t\t\t\treturn ft.sum(x, y);\n\
+    \t\t\t};\n\t\t\tauto F = [&](long long a, long long b) {\n\t\t\t\treturn a + b;\n\
+    \t\t\t};\n\t\t\tlong long e = 0;\n\n\t\t\tcout << hld.query(u, v, Query, F, e)\
+    \ << '\\n';\n\t\t}\n\t}\n}\n"
   dependsOn:
   - graph/hl_decomposition.cpp
   - data_structure/fenwick_tree.cpp
   isVerificationFile: true
   path: test/graph/hl_decomposition/hld.test.cpp
   requiredBy: []
-  timestamp: '2023-12-01 06:56:38+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-12-01 07:12:40+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/hl_decomposition/hld.test.cpp
 layout: document

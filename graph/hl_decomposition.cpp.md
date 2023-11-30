@@ -3,12 +3,12 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith:
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: test/graph/hl_decomposition/hld.test.cpp
     title: test/graph/hl_decomposition/hld.test.cpp
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     _deprecated_at_docs: docs/graph/hl_decomposition.md
     document_title: Heavy-Light Decomposition
@@ -89,7 +89,7 @@ data:
   path: graph/hl_decomposition.cpp
   requiredBy: []
   timestamp: '2023-12-01 06:34:09+09:00'
-  verificationStatus: LIBRARY_ALL_WA
+  verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/hl_decomposition/hld.test.cpp
 documentation_of: graph/hl_decomposition.cpp
