@@ -33,5 +33,5 @@ struct fenwick_tree {
 
 /**
  * @brief Fenwick Tree
- * @docs docs/data_stracture/fenwick_tree.md
+ * @docs docs/data_structure/fenwick_tree.md
 */
