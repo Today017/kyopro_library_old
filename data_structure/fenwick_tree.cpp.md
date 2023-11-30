@@ -10,7 +10,7 @@ data:
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
-    _deprecated_at_docs: docs/data_stracture/fenwick_tree.md
+    _deprecated_at_docs: docs/data_structure/fenwick_tree.md
     document_title: Fenwick Tree
     links: []
   bundledCode: "#line 1 \"data_structure/fenwick_tree.cpp\"\n\r\n\r\ntemplate <typename\
@@ -21,7 +21,7 @@ data:
     \ sum(l);\r\n\t}\r\n\tT sum(int r) {\r\n\t\tT ret = 0;\r\n\t\twhile (r > 0) {\r\
     \n\t\t\tret += dat[r - 1];\r\n\t\t\tr -= r & -r;\r\n\t\t}\r\n\t\treturn ret;\r\
     \n\t}\r\n\tT operator[](int i) {\r\n\t\treturn sum(i, i + 1);\r\n\t}\r\n};\r\n\
-    \r\n/**\r\n * @brief Fenwick Tree\r\n * @docs docs/data_stracture/fenwick_tree.md\r\
+    \r\n/**\r\n * @brief Fenwick Tree\r\n * @docs docs/data_structure/fenwick_tree.md\r\
     \n*/\n"
   code: "\r\n\r\ntemplate <typename T>\r\nstruct fenwick_tree {\r\n\tint n;\r\n\t\
     vector<T> dat;\r\n\tfenwick_tree(int n) {\r\n\t\tthis->n = n;\r\n\t\tdat.resize(n);\r\
@@ -30,13 +30,13 @@ data:
     \ {\r\n\t\treturn sum(r) - sum(l);\r\n\t}\r\n\tT sum(int r) {\r\n\t\tT ret = 0;\r\
     \n\t\twhile (r > 0) {\r\n\t\t\tret += dat[r - 1];\r\n\t\t\tr -= r & -r;\r\n\t\t\
     }\r\n\t\treturn ret;\r\n\t}\r\n\tT operator[](int i) {\r\n\t\treturn sum(i, i\
-    \ + 1);\r\n\t}\r\n};\r\n\r\n/**\r\n * @brief Fenwick Tree\r\n * @docs docs/data_stracture/fenwick_tree.md\r\
+    \ + 1);\r\n\t}\r\n};\r\n\r\n/**\r\n * @brief Fenwick Tree\r\n * @docs docs/data_structure/fenwick_tree.md\r\
     \n*/"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/fenwick_tree.cpp
   requiredBy: []
-  timestamp: '2023-11-30 20:36:56+09:00'
+  timestamp: '2023-11-30 20:40:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/fenwick_tree.test.cpp
@@ -47,3 +47,32 @@ redirect_from:
 - /library/data_structure/fenwick_tree.cpp.html
 title: Fenwick Tree
 ---
+# Fenwick Tree
+
+ac-library/fenwicktreeと仕様はほぼ同じ。
+
+##
+```fenwick_tree<T> ft(int n)```
+#### 計算量
+- $O(n)$
+
+
+##
+```ft.add(int i, T x)```
+- 位置`i`に`x`を加算する。
+
+#### 制約
+- $0\le p<n$
+
+#### 計算量
+- $O(\log{n})$
+
+##
+```ft.sum(int l, int r)```
+- 区間`[l,r)`の総和を返す。
+
+#### 制約
+- $0\le l \le r\le n$
+
+#### 計算量
+- $O(\log{n})$

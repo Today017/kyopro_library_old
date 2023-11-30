@@ -23,7 +23,7 @@ data:
     \ {\r\n\t\treturn sum(r) - sum(l);\r\n\t}\r\n\tT sum(int r) {\r\n\t\tT ret = 0;\r\
     \n\t\twhile (r > 0) {\r\n\t\t\tret += dat[r - 1];\r\n\t\t\tr -= r & -r;\r\n\t\t\
     }\r\n\t\treturn ret;\r\n\t}\r\n\tT operator[](int i) {\r\n\t\treturn sum(i, i\
-    \ + 1);\r\n\t}\r\n};\r\n\r\n/**\r\n * @brief Fenwick Tree\r\n * @docs docs/data_stracture/fenwick_tree.md\r\
+    \ + 1);\r\n\t}\r\n};\r\n\r\n/**\r\n * @brief Fenwick Tree\r\n * @docs docs/data_structure/fenwick_tree.md\r\
     \n*/\n#line 5 \"test/fenwick_tree.test.cpp\"\n\nint main() {\n\tint N, Q;\n\t\
     cin >> N >> Q;\n\tfenwick_tree<long long> FT(N);\n\tfor (int i = 0; i < N; i++)\
     \ {\n\t\tint a;\n\t\tcin >> a;\n\t\tFT.add(i, a);\n\t}\n\twhile (Q--) {\n\t\t\
@@ -43,7 +43,7 @@ data:
   isVerificationFile: true
   path: test/fenwick_tree.test.cpp
   requiredBy: []
-  timestamp: '2023-11-30 20:36:56+09:00'
+  timestamp: '2023-11-30 20:40:24+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/fenwick_tree.test.cpp
