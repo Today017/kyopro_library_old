@@ -1,5 +1,7 @@
-#include <bits/stdc++.h>
-using namespace std;
+/**
+ * @brief Disjoint Set Union
+ * @docs docs/graph/dsu.md
+*/
 
 struct dsu {
 	vector<int> par, sz;
