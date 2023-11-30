@@ -50,8 +50,8 @@ data:
       path: graph/dsu.cpp
       title: Disjoint Set Union
     - icon: ':warning:'
-      path: graph/hld_graph.cpp
-      title: graph/hld_graph.cpp
+      path: graph/hl_decomposition.cpp
+      title: Heavy-Light Decomposition
     - icon: ':warning:'
       path: graph/lowest_common_ancestor.cpp
       title: graph/lowest_common_ancestor.cpp
