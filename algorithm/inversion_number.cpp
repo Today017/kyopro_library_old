@@ -1,6 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
-#include "data_stracture/fenwick_tree.cpp"
+#include <atcoder/fenwicktree>
+using namespace atcoder;
 
 long long inversion_number(const vector<int> &A) {
 	int n = A.size();
