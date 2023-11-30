@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 vector<pair<char, int>> run_length_encoding(string s) {
 	int n = s.size();
 	vector<pair<char, int>> ret;
