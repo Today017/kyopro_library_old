@@ -48,7 +48,7 @@ data:
       title: graph/dijkstra2.cpp
     - icon: ':heavy_check_mark:'
       path: graph/dsu.cpp
-      title: graph/dsu.cpp
+      title: Disjoint Set Union
     - icon: ':warning:'
       path: graph/hld_graph.cpp
       title: graph/hld_graph.cpp
