@@ -12,10 +12,9 @@ int main() {
 	fenwick_tree<long long> ft(N);
 	heavy_light_decomposition hld(N);
 
+	vector<int> A(N);
 	for (int i = 0; i < N; i++) {
-		int a;
-		cin >> a;
-		ft.add(i, a);
+		cin >> A[i];
 	}
 	for (int i = 0; i < N - 1; i++) {
 		int u, v;
@@ -24,6 +23,12 @@ int main() {
 	}
 
 	hld.hld_start();
+	for (int i = 0; i < N; i++) {
+		auto Update = [&](int i, int pos) {
+			ft.add(pos, A[i]);
+		};
+		hld.update(i, Update);
+	}
 
 	while (Q--) {
 		int t;
