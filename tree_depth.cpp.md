@@ -1,0 +1,35 @@
+---
+data:
+  _extendedDependsOn: []
+  _extendedRequiredBy: []
+  _extendedVerifiedWith: []
+  _isVerificationFailed: false
+  _pathExtension: cpp
+  _verificationStatusIcon: ':warning:'
+  attributes:
+    links: []
+  bundledCode: "#line 1 \"tree_depth.cpp\"\n#include <bits/stdc++.h>\nusing namespace\
+    \ std;\n\nvector<int> tree_depth(vector<vector<int>> &G, int root = 0) {\n\tint\
+    \ n = G.size();\n\tvector<int> depth(n);\n\tauto dfs = [&](auto &&dfs, int now,\
+    \ int pre) -> void {\n\t\tfor (int nxt : G[now]) {\n\t\t\tif (nxt != pre) {\n\t\
+    \t\t\tdepth[nxt] = depth[now] + 1;\n\t\t\t\tdfs(dfs, nxt, now);\n\t\t\t}\n\t\t\
+    }\n\t};\n\tdfs(dfs, root, -1);\n\treturn depth;\n}\n"
+  code: "#include <bits/stdc++.h>\nusing namespace std;\n\nvector<int> tree_depth(vector<vector<int>>\
+    \ &G, int root = 0) {\n\tint n = G.size();\n\tvector<int> depth(n);\n\tauto dfs\
+    \ = [&](auto &&dfs, int now, int pre) -> void {\n\t\tfor (int nxt : G[now]) {\n\
+    \t\t\tif (nxt != pre) {\n\t\t\t\tdepth[nxt] = depth[now] + 1;\n\t\t\t\tdfs(dfs,\
+    \ nxt, now);\n\t\t\t}\n\t\t}\n\t};\n\tdfs(dfs, root, -1);\n\treturn depth;\n}"
+  dependsOn: []
+  isVerificationFile: false
+  path: tree_depth.cpp
+  requiredBy: []
+  timestamp: '2023-11-30 13:56:37+09:00'
+  verificationStatus: LIBRARY_NO_TESTS
+  verifiedWith: []
+documentation_of: tree_depth.cpp
+layout: document
+redirect_from:
+- /library/tree_depth.cpp
+- /library/tree_depth.cpp.html
+title: tree_depth.cpp
+---
