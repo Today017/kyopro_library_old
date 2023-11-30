@@ -2,10 +2,13 @@
 data:
   _extendedDependsOn: []
   _extendedRequiredBy: []
-  _extendedVerifiedWith: []
+  _extendedVerifiedWith:
+  - icon: ':heavy_check_mark:'
+    path: test/fenwick_tree.test.cpp
+    title: test/fenwick_tree.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':warning:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     links: []
   bundledCode: "#line 1 \"data_structure/fenwick_tree.cpp\"\n#include <bits/stdc++.h>\r\
@@ -30,8 +33,9 @@ data:
   path: data_structure/fenwick_tree.cpp
   requiredBy: []
   timestamp: '2023-11-30 18:16:37+09:00'
-  verificationStatus: LIBRARY_NO_TESTS
-  verifiedWith: []
+  verificationStatus: LIBRARY_ALL_AC
+  verifiedWith:
+  - test/fenwick_tree.test.cpp
 documentation_of: data_structure/fenwick_tree.cpp
 layout: document
 redirect_from:

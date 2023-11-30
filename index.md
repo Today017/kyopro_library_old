@@ -23,7 +23,7 @@ data:
       title: algorithm/mo.cpp
   - name: data_structure
     pages:
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: data_structure/fenwick_tree.cpp
       title: data_structure/fenwick_tree.cpp
     - icon: ':warning:'
@@ -134,7 +134,7 @@ data:
       title: example.test.cpp
   - name: test
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/fenwick_tree.test.cpp
       title: test/fenwick_tree.test.cpp
 layout: toppage
