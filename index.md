@@ -20,7 +20,7 @@ data:
       title: algorithm/mo.cpp
   - name: data_structure
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: data_structure/fenwick_tree.cpp
       title: Fenwick Tree
     - icon: ':warning:'
@@ -49,7 +49,7 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/dsu.cpp
       title: Disjoint Set Union
-    - icon: ':warning:'
+    - icon: ':x:'
       path: graph/hl_decomposition.cpp
       title: Heavy-Light Decomposition
     - icon: ':warning:'
@@ -135,5 +135,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/graph/dsu/dsu.test.cpp
       title: test/graph/dsu/dsu.test.cpp
+  - name: test/graph/hl_decomposition
+    pages:
+    - icon: ':x:'
+      path: test/graph/hl_decomposition/hld.test.cpp
+      title: test/graph/hl_decomposition/hld.test.cpp
 layout: toppage
 ---

@@ -6,9 +6,12 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/data_structure/fenwick_tree/fenwick_tree.test.cpp
     title: test/data_structure/fenwick_tree/fenwick_tree.test.cpp
-  _isVerificationFailed: false
+  - icon: ':x:'
+    path: test/graph/hl_decomposition/hld.test.cpp
+    title: test/graph/hl_decomposition/hld.test.cpp
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
+  _verificationStatusIcon: ':question:'
   attributes:
     _deprecated_at_docs: docs/data_structure/fenwick_tree.md
     document_title: Fenwick Tree
@@ -36,9 +39,10 @@ data:
   path: data_structure/fenwick_tree.cpp
   requiredBy: []
   timestamp: '2023-11-30 20:49:19+09:00'
-  verificationStatus: LIBRARY_ALL_AC
+  verificationStatus: LIBRARY_SOME_WA
   verifiedWith:
   - test/data_structure/fenwick_tree/fenwick_tree.test.cpp
+  - test/graph/hl_decomposition/hld.test.cpp
 documentation_of: data_structure/fenwick_tree.cpp
 layout: document
 redirect_from:
