@@ -1,28 +1,12 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 /**
- * vector<int> sz :
- * 	頂点の部分木の大きさ
- * vector<int> parent :
- * 	頂点の親
- * vector<int> depth :
- * 	頂点の深さ
- * vector<int> hld :
- * 	HLDした結果の配列
- * vector<int> pos :
- * 	元の頂点の位置
- * vector<int> head :
- * 	頂点の属する連結成分の最も浅い頂点
+ * @brief Heavy-Light Decomposition
+ * @docs docs/graph/hl_decomposition.md
 */
 
-// heavy-light decomposition
-// https://hcpc-hokudai.github.io/archive/graph_tree_001.pdf
-// https://atcoder.jp/contests/abc294/submissions/46419196
-struct hld_graph {
+struct heavy_light_decomposition {
 	vector<vector<int>> G;
 	vector<int> sz, parent, depth, hld, pos, head;
-	hld_graph(int n) {
+	heavy_light_decomposition(int n) {
 		G.resize(n);
 		sz.resize(n);
 		parent.resize(n);
@@ -34,7 +18,7 @@ struct hld_graph {
 		G[a].push_back(b);
 		G[b].push_back(a);
 	}
-	hld_graph(const vector<vector<int>>& G) {
+	heavy_light_decomposition(const vector<vector<int>>& G) {
 		int n = G.size();
 		this->G = G;
 		sz.resize(n);
@@ -109,19 +93,10 @@ struct hld_graph {
 		}
 		return depth[u] < depth[v] ? u : v;
 	}
-	// Update(x, pos_x) 頂点xに対する処理
-	// pos_x            頂点xのHLD後の位置
-	// 列を管理するデータ構造Aに対して、xに対しての処理をUpdate内でA[pos_x]に対して行う
 	template <typename U>
 	void update(int x, U& Update) {
 		Update(x, pos[x]);
 	}
-	// u, v         処理/取得を行うパス
-	// Query(x, y)  区間[x,y)に対する処理
-	// F            演算
-	// e            Fの単位元
-	// 列を管理するデータ構造Aに対して、x,yに対しての処理/取得をQuery内で行う
-	// 演算結果をFでまとめる
 	template <typename Q, typename F, typename T>
 	T query(int u, int v, Q& Query, F& f, T e) {
 		T ret = e;

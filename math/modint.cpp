@@ -4,6 +4,9 @@ struct modint {
 	constexpr modint(const unsigned long long x = 0) {
 		value = x % MOD;
 	}
+	constexpr modint raw(const unsigned long long x = 0) {
+		return modint(x);
+	}
 	constexpr modint operator+(const modint other) {
 		return modint(*this) += other;
 	}
