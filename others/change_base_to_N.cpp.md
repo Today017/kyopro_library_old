@@ -8,7 +8,7 @@ data:
   _verificationStatusIcon: ':warning:'
   attributes:
     links: []
-  bundledCode: "#line 1 \"algorithm/change_base_to_N.cpp\"\n#include <bits/stdc++.h>\n\
+  bundledCode: "#line 1 \"others/change_base_to_N.cpp\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n// 10\u9032\u6570\u975E\u8CA0\u6574\u6570\u3092N\u9032\
     \u6570\u306B\u5909\u63DB\u3059\u308B\n// Size \u6841\u6570\n// n    \u5909\u63DB\
     \u5BFE\u8C61\u306E10\u9032\u6570\n// base \u57FA\u6570\n// rev  \u5909\u63DB\u5F8C\
@@ -31,15 +31,15 @@ data:
     \t}\n\treturn ret;\n}"
   dependsOn: []
   isVerificationFile: false
-  path: algorithm/change_base_to_N.cpp
+  path: others/change_base_to_N.cpp
   requiredBy: []
-  timestamp: '2023-11-30 18:16:37+09:00'
+  timestamp: '2023-11-30 19:42:25+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
-documentation_of: algorithm/change_base_to_N.cpp
+documentation_of: others/change_base_to_N.cpp
 layout: document
 redirect_from:
-- /library/algorithm/change_base_to_N.cpp
-- /library/algorithm/change_base_to_N.cpp.html
-title: algorithm/change_base_to_N.cpp
+- /library/others/change_base_to_N.cpp
+- /library/others/change_base_to_N.cpp.html
+title: others/change_base_to_N.cpp
 ---

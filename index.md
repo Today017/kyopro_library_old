@@ -4,9 +4,6 @@ data:
   - name: algorithm
     pages:
     - icon: ':warning:'
-      path: algorithm/change_base_to_N.cpp
-      title: algorithm/change_base_to_N.cpp
-    - icon: ':warning:'
       path: algorithm/compress_vector.cpp
       title: algorithm/compress_vector.cpp
     - icon: ':warning:'
@@ -38,11 +35,6 @@ data:
     - icon: ':warning:'
       path: data_structure/tree.cpp
       title: data_structure/tree.cpp
-  - name: .
-    pages:
-    - icon: ':warning:'
-      path: debug.cpp
-      title: debug.cpp
   - name: graph
     pages:
     - icon: ':warning:'
@@ -115,6 +107,12 @@ data:
       title: math/prime_factors.cpp
   - name: others
     pages:
+    - icon: ':warning:'
+      path: others/change_base_to_N.cpp
+      title: others/change_base_to_N.cpp
+    - icon: ':warning:'
+      path: others/debug.cpp
+      title: others/debug.cpp
     - icon: ':warning:'
       path: others/util.cpp
       title: others/util.cpp
