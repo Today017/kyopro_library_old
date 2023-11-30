@@ -1,7 +1,7 @@
 #define PROBLEM "https://judge.yosupo.jp/problem/point_add_range_sum"
 #include <bits/stdc++.h>
 using namespace std;
-#include "Today's/fenwick_tree.cpp"
+#include "data_structure/fenwick_tree.cpp"
 
 int main(){
 	int N,Q;cin>>N>>Q;
