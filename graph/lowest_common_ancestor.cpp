@@ -1,5 +1,7 @@
-#include <bits/stdc++.h>
-using namespace std;
+/**
+ * @brief Lowest Common Ancestor
+ * @docs docs/graph/lowest_common_ancestor.md
+*/
 
 struct lowest_common_ancestor {
 	vector<vector<int>> parent;
