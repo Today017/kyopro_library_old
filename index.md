@@ -52,9 +52,9 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/hl_decomposition.cpp
       title: Heavy-Light Decomposition
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/lowest_common_ancestor.cpp
-      title: graph/lowest_common_ancestor.cpp
+      title: Lowest Common Ancestor
     - icon: ':warning:'
       path: graph/strongly_connected_componet.cpp
       title: graph/strongly_connected_componet.cpp
@@ -140,5 +140,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: test/graph/hl_decomposition/hld.test.cpp
       title: test/graph/hl_decomposition/hld.test.cpp
+  - name: test/graph/lowest_common_ancestor
+    pages:
+    - icon: ':heavy_check_mark:'
+      path: test/graph/lowest_common_ancestor/lca.test.cpp
+      title: test/graph/lowest_common_ancestor/lca.test.cpp
 layout: toppage
 ---
