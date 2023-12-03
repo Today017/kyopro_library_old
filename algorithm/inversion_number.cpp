@@ -1,4 +1,4 @@
-#include <../data_structure/fenwick_tree.cpp>
+#include "data_structure/fenwick_tree.cpp"
 
 /**
  * @brief Inversion Number
