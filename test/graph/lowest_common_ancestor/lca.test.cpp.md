@@ -1,49 +1,24 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: graph/lowest_common_ancestor.cpp
-    title: Lowest Common Ancestor
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: false
+  _isVerificationFailed: true
   _pathExtension: cpp
-  _verificationStatusIcon: ':heavy_check_mark:'
-  attributes:
-    '*NOT_SPECIAL_COMMENTS*': ''
-    PROBLEM: https://judge.yosupo.jp/problem/lca
-    links:
-    - https://judge.yosupo.jp/problem/lca
-  bundledCode: "#line 1 \"test/graph/lowest_common_ancestor/lca.test.cpp\"\n#define\
-    \ PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include <bits/stdc++.h>\n\
-    using namespace std;\n\n#line 1 \"graph/lowest_common_ancestor.cpp\"\n/**\n *\
-    \ @brief Lowest Common Ancestor\n * @docs docs/graph/lowest_common_ancestor.md\n\
-    */\n\nstruct lowest_common_ancestor {\n\tvector<vector<int>> parent;\n\tvector<int>\
-    \ dst;\n\tlowest_common_ancestor(vector<vector<int>> &G, int root = 0) {\n\t\t\
-    int n = G.size();\n\t\tint k = 1;\n\t\twhile ((1 << k) < n) {\n\t\t\tk++;\n\t\t\
-    }\n\t\tparent = vector<vector<int>>(k, vector<int>(n, -1));\n\t\tdst = vector<int>(n,\
-    \ -1);\n\t\tdfs(G, root, -1, 0);\n\t\tfor (int i = 0; i + 1 < k; i++) {\n\t\t\t\
-    for (int j = 0; j < n; j++) {\n\t\t\t\tif (parent[i][j] < 0) {\n\t\t\t\t\tparent[i\
-    \ + 1][j] = -1;\n\t\t\t\t} else {\n\t\t\t\t\tparent[i + 1][j] = parent[i][parent[i][j]];\n\
-    \t\t\t\t}\n\t\t\t}\n\t\t}\n\t}\n\tvoid dfs(vector<vector<int>> &G, int now, int\
-    \ pre, int tmp) {\n\t\tparent[0][now] = pre;\n\t\tdst[now] = tmp;\n\t\tfor (int\
-    \ nxt : G[now]) {\n\t\t\tif (nxt != pre) {\n\t\t\t\tdfs(G, nxt, now, tmp + 1);\n\
-    \t\t\t}\n\t\t}\n\t}\n\tint lca(int u, int v) {\n\t\tif (dst[u] < dst[v]) {\n\t\
-    \t\tswap(u, v);\n\t\t}\n\t\tint k = parent.size();\n\t\tfor (int i = 0; i < k;\
-    \ i++) {\n\t\t\tif ((dst[u] - dst[v]) >> i & 1) {\n\t\t\t\tu = parent[i][u];\n\
-    \t\t\t}\n\t\t}\n\t\tif (u == v) {\n\t\t\treturn u;\n\t\t}\n\t\tfor (int i = k\
-    \ - 1; i >= 0; i--) {\n\t\t\tif (parent[i][u] != parent[i][v]) {\n\t\t\t\tu =\
-    \ parent[i][u];\n\t\t\t\tv = parent[i][v];\n\t\t\t}\n\t\t}\n\t\treturn parent[0][u];\n\
-    \t}\n\tint distance(int u, int v) {\n\t\treturn dst[u] + dst[v] - 2 * dst[lca(u,\
-    \ v)];\n\t}\n\tbool is_on_path(int u, int v, int x) {\n\t\treturn distance(u,\
-    \ x) + distance(x, v) == distance(u, v);\n\t}\n\tint climb(int u, int d) {\n\t\
-    \tint k = parent.size();\n\t\tfor (int i = k - 1; i >= 0; i--) {\n\t\t\tif (d\
-    \ >> i & 1) {\n\t\t\t\tu = parent[i][u];\n\t\t\t}\n\t\t}\n\t\treturn u;\n\t}\n\
-    };\n#line 6 \"test/graph/lowest_common_ancestor/lca.test.cpp\"\n\nint main() {\n\
-    \tint N, Q;\n\tcin >> N >> Q;\n\n\tvector<vector<int>> G(N);\n\tfor (int i = 1;\
-    \ i < N; i++) {\n\t\tint p;\n\t\tcin >> p;\n\t\tG[p].push_back(i);\n\t\tG[i].push_back(p);\n\
-    \t}\n\n\tlowest_common_ancestor lca(G);\n\n\twhile (Q--) {\n\t\tint u, v;\n\t\t\
-    cin >> u >> v;\n\n\t\tcout << lca.lca(u, v) << '\\n';\n\t}\n}\n"
+  _verificationStatusIcon: ':x:'
+  attributes: {}
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
+    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
+    \  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
+    \ File \"/opt/hostedtoolcache/Python/3.12.0/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: ../../../graph/lowest_common_ancestor.cpp:\
+    \ line -1: no such header\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/lca\"\n#include <bits/stdc++.h>\n\
     using namespace std;\n\n#include \"../../../graph/lowest_common_ancestor.cpp\"\
     \n\nint main() {\n\tint N, Q;\n\tcin >> N >> Q;\n\n\tvector<vector<int>> G(N);\n\
@@ -51,13 +26,12 @@ data:
     \t\tG[i].push_back(p);\n\t}\n\n\tlowest_common_ancestor lca(G);\n\n\twhile (Q--)\
     \ {\n\t\tint u, v;\n\t\tcin >> u >> v;\n\n\t\tcout << lca.lca(u, v) << '\\n';\n\
     \t}\n}"
-  dependsOn:
-  - graph/lowest_common_ancestor.cpp
+  dependsOn: []
   isVerificationFile: true
   path: test/graph/lowest_common_ancestor/lca.test.cpp
   requiredBy: []
-  timestamp: '2023-12-02 02:19:23+09:00'
-  verificationStatus: TEST_ACCEPTED
+  timestamp: '1970-01-01 00:00:00+00:00'
+  verificationStatus: TEST_WRONG_ANSWER
   verifiedWith: []
 documentation_of: test/graph/lowest_common_ancestor/lca.test.cpp
 layout: document

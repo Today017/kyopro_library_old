@@ -6,9 +6,6 @@ data:
   - icon: ':heavy_check_mark:'
     path: test/data_structure/fenwick_tree/fenwick_tree.test.cpp
     title: test/data_structure/fenwick_tree/fenwick_tree.test.cpp
-  - icon: ':heavy_check_mark:'
-    path: test/graph/hl_decomposition/hld.test.cpp
-    title: test/graph/hl_decomposition/hld.test.cpp
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':heavy_check_mark:'
@@ -42,7 +39,6 @@ data:
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/fenwick_tree/fenwick_tree.test.cpp
-  - test/graph/hl_decomposition/hld.test.cpp
 documentation_of: data_structure/fenwick_tree.cpp
 layout: document
 redirect_from:

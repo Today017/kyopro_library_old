@@ -11,7 +11,7 @@ data:
       title: algorithm/cumsum2D.cpp
     - icon: ':warning:'
       path: algorithm/inversion_number.cpp
-      title: algorithm/inversion_number.cpp
+      title: Inversion Number
     - icon: ':warning:'
       path: algorithm/longest_increasing_subsequence_length.cpp
       title: algorithm/longest_increasing_subsequence_length.cpp
@@ -30,8 +30,8 @@ data:
       path: data_structure/ruq.cpp
       title: data_structure/ruq.cpp
     - icon: ':warning:'
-      path: data_structure/segtree.cpp
-      title: data_structure/segtree.cpp
+      path: data_structure/segment_tree.cpp
+      title: data_structure/segment_tree.cpp
     - icon: ':warning:'
       path: data_structure/tree.cpp
       title: data_structure/tree.cpp
@@ -43,27 +43,21 @@ data:
     - icon: ':warning:'
       path: graph/dijkstra.cpp
       title: graph/dijkstra.cpp
-    - icon: ':warning:'
-      path: graph/dijkstra2.cpp
-      title: graph/dijkstra2.cpp
     - icon: ':heavy_check_mark:'
       path: graph/dsu.cpp
       title: Disjoint Set Union
-    - icon: ':heavy_check_mark:'
-      path: graph/hl_decomposition.cpp
+    - icon: ':warning:'
+      path: graph/hld.cpp
       title: Heavy-Light Decomposition
-    - icon: ':heavy_check_mark:'
-      path: graph/lowest_common_ancestor.cpp
+    - icon: ':warning:'
+      path: graph/lca.cpp
       title: Lowest Common Ancestor
     - icon: ':warning:'
-      path: graph/strongly_connected_componet.cpp
-      title: graph/strongly_connected_componet.cpp
+      path: graph/scc.cpp
+      title: graph/scc.cpp
     - icon: ':warning:'
       path: graph/topological_sort.cpp
       title: graph/topological_sort.cpp
-    - icon: ':warning:'
-      path: graph/topological_sort2.cpp
-      title: graph/topological_sort2.cpp
     - icon: ':warning:'
       path: graph/tree_depth.cpp
       title: graph/tree_depth.cpp
@@ -72,9 +66,6 @@ data:
       title: graph/tree_diameter.cpp
   - name: math
     pages:
-    - icon: ':warning:'
-      path: math/Eratosthenes.cpp
-      title: math/Eratosthenes.cpp
     - icon: ':warning:'
       path: math/divisors.cpp
       title: math/divisors.cpp
@@ -87,6 +78,9 @@ data:
     - icon: ':warning:'
       path: math/fraction.cpp
       title: math/fraction.cpp
+    - icon: ':warning:'
+      path: math/generate_primes.cpp
+      title: math/generate_primes.cpp
     - icon: ':warning:'
       path: math/matrix.cpp
       title: math/matrix.cpp
@@ -137,12 +131,12 @@ data:
       title: test/graph/dsu/dsu.test.cpp
   - name: test/graph/hl_decomposition
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/graph/hl_decomposition/hld.test.cpp
       title: test/graph/hl_decomposition/hld.test.cpp
   - name: test/graph/lowest_common_ancestor
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/graph/lowest_common_ancestor/lca.test.cpp
       title: test/graph/lowest_common_ancestor/lca.test.cpp
 layout: toppage
