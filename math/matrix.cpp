@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 template <class T>
 using matrix = vector<vector<T>>;
 template <class T>

@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 struct fraction {
 	__int128_t p, q;
 	// p/q

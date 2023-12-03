@@ -1,8 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-#include <atcoder/all>
-using namespace atcoder;
-
 template <typename T>
 struct combination {
 	vector<T> fact, factinv;

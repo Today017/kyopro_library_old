@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 // 10進数非負整数をN進数に変換する
 // Size 桁数
 // n    変換対象の10進数

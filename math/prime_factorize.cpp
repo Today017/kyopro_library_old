@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 vector<pair<long long, int>> prime_factorize(long long n) {
 	vector<pair<long long, int>> ret;
 	for (long long i = 2; i * i <= n; i++) {

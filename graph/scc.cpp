@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 vector<vector<int>> strongly_connected_components_decomposition(const vector<vector<int>> &G) {
 	int n = G.size();
 	vector<vector<int>> G2(n);

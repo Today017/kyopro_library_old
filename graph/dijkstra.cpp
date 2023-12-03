@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 // Dijkstra法 
 // O(Elog(E))
 // INF minの単位元

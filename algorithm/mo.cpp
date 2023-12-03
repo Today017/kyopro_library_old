@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 // https://ei1333.hateblo.jp/entry/2017/09/11/211011
 // Moが使える条件
 // 1.配列の要素が不変

@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 template <typename T>
 vector<T> compress(vector<T> &A) {
 	int n = A.size();

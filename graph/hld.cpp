@@ -1,6 +1,6 @@
 /**
  * @brief Heavy-Light Decomposition
- * @docs docs/graph/hl_decomposition.md
+ * @docs docs/graph/hld.md
 */
 
 struct heavy_light_decomposition {

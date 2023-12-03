@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 vector<long long> prime_factors(long long n) {
 	vector<long long> ret;
 	for (long long i = 2; i * i <= n; i++) {

@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 vector<int> tree_diameter(vector<vector<int>>& G) {
 	int n = G.size();
 	const int INF = 1001001001;

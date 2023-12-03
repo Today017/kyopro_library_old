@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 using Real = long double;
 const Real RINF = 1e20;
 const Real EPS = 1e-10;

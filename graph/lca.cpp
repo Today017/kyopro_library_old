@@ -1,6 +1,6 @@
 /**
  * @brief Lowest Common Ancestor
- * @docs docs/graph/lowest_common_ancestor.md
+ * @docs docs/graph/lca.md
 */
 
 struct lowest_common_ancestor {

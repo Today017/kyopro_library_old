@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 template <typename T>
 vector<vector<T>> combination(int n) {
 	vector<vector<T>> nCr(n + 1, vector<T>(n + 1));

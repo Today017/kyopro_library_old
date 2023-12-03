@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 vector<long long> divisors(long long n) {
 	vector<long long> ret;
 	for (long long i = 1; i * i <= n; i++) {

@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 vector<int> topological_sort(const vector<vector<int>> &G) {
 	int n = G.size();
 	vector<int> indeg(n);

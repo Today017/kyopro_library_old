@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 // ベルマンフォード法 (負のコストの辺を含む重み付き有向グラフに対して、単一始点最短経路問題を解く)
 // O(NM)
 // return 負のサイクルが存在しないか否か

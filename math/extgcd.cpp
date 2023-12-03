@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 tuple<long long, long long, long long> extgcd(long long a, long long b) {
 	if (b == 0) {
 		return {a, 1, 0};

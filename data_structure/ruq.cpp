@@ -1,11 +1,8 @@
-#include <bits/stdc++.h>
-using namespace std;
-
-struct segment_tree {
+struct range_update_query {
 	int n;
 	int t;
 	vector<pair<int, int>> dat;
-	segment_tree(int n) {
+	range_update_query(int n) {
 		this->n = 1;
 		while (this->n < n) {
 			this->n *= 2;

@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 vector<int> tree_depth(vector<vector<int>> &G, int root = 0) {
 	int n = G.size();
 	vector<int> depth(n);

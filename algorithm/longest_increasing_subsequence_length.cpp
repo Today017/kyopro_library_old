@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 int longest_increasing_subsequence_length(vector<int> &A, bool strict = true) {
 	int n = A.size();
 	vector<int> dp(n, INT_MAX);

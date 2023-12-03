@@ -1,6 +1,3 @@
-#include <bits/stdc++.h>
-using namespace std;
-
 // エラトステネスの篩による素数列挙
 // O(Nlog(log(N)))
 vector<int> generate_primes(int n) {
