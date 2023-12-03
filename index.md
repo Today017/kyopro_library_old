@@ -46,10 +46,10 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/dsu.cpp
       title: Disjoint Set Union
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/hld.cpp
       title: Heavy-Light Decomposition
-    - icon: ':warning:'
+    - icon: ':heavy_check_mark:'
       path: graph/lca.cpp
       title: Lowest Common Ancestor
     - icon: ':warning:'
@@ -131,12 +131,12 @@ data:
       title: test/graph/dsu/dsu.test.cpp
   - name: test/graph/hl_decomposition
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/hl_decomposition/hld.test.cpp
       title: test/graph/hl_decomposition/hld.test.cpp
   - name: test/graph/lowest_common_ancestor
     pages:
-    - icon: ':x:'
+    - icon: ':heavy_check_mark:'
       path: test/graph/lowest_common_ancestor/lca.test.cpp
       title: test/graph/lowest_common_ancestor/lca.test.cpp
 layout: toppage
