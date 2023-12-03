@@ -2,7 +2,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-#include "../../../graph/hl_decomposition.cpp"
+#include "../../../graph/hld.cpp"
 #include "../../../data_structure/fenwick_tree.cpp"
 
 int main() {
