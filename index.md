@@ -85,12 +85,6 @@ data:
       path: math/matrix.cpp
       title: math/matrix.cpp
     - icon: ':warning:'
-      path: math/mod_combination.cpp
-      title: math/mod_combination.cpp
-    - icon: ':warning:'
-      path: math/modint.cpp
-      title: math/modint.cpp
-    - icon: ':warning:'
       path: math/point.cpp
       title: math/point.cpp
     - icon: ':warning:'
@@ -99,6 +93,14 @@ data:
     - icon: ':warning:'
       path: math/prime_factors.cpp
       title: math/prime_factors.cpp
+  - name: mod
+    pages:
+    - icon: ':warning:'
+      path: mod/mod_combination.cpp
+      title: Combination
+    - icon: ':warning:'
+      path: mod/modint.cpp
+      title: mod/modint.cpp
   - name: others
     pages:
     - icon: ':warning:'
@@ -113,11 +115,17 @@ data:
   - name: string
     pages:
     - icon: ':warning:'
+      path: string/manacher.cpp
+      title: Manacher
+    - icon: ':warning:'
       path: string/rolling_hash.cpp
-      title: string/rolling_hash.cpp
+      title: Rolling Hash
     - icon: ':warning:'
       path: string/run_length_encoding.cpp
       title: string/run_length_encoding.cpp
+    - icon: ':warning:'
+      path: string/z_algo.cpp
+      title: Z-algorithm
   verificationCategories:
   - name: test/data_structure/fenwick_tree
     pages:
