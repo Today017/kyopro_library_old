@@ -1,3 +1,9 @@
+#include "mod/modint.cpp"
+
+/**
+ * @brief Combination
+ */
+
 template <typename T>
 struct combination {
 	vector<T> fact, factinv;
