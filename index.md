@@ -39,10 +39,10 @@ data:
     pages:
     - icon: ':warning:'
       path: graph/bellman_ford.cpp
-      title: graph/bellman_ford.cpp
+      title: Bellman Ford
     - icon: ':warning:'
       path: graph/dijkstra.cpp
-      title: graph/dijkstra.cpp
+      title: Dijkstra
     - icon: ':heavy_check_mark:'
       path: graph/dsu.cpp
       title: Disjoint Set Union
@@ -54,45 +54,43 @@ data:
       title: Lowest Common Ancestor
     - icon: ':warning:'
       path: graph/scc.cpp
-      title: graph/scc.cpp
+      title: Strongly Connected Components Decomposition
     - icon: ':warning:'
       path: graph/topological_sort.cpp
-      title: graph/topological_sort.cpp
+      title: Topological Sort
     - icon: ':warning:'
       path: graph/tree_depth.cpp
-      title: graph/tree_depth.cpp
+      title: "\u6728\u306E\u6DF1\u3055"
     - icon: ':warning:'
       path: graph/tree_diameter.cpp
-      title: graph/tree_diameter.cpp
+      title: "\u6728\u306E\u76F4\u5F84"
   - name: math
     pages:
     - icon: ':warning:'
       path: math/divisors.cpp
-      title: math/divisors.cpp
+      title: "\u7D04\u6570\u5217\u6319"
     - icon: ':warning:'
       path: math/extgcd.cpp
-      title: math/extgcd.cpp
+      title: "ExtGCD, mod\u4E0A\u306E\u9006\u5143, \u4E0D\u5B9A\u4E00\u6B21\u65B9\u7A0B\
+        \u5F0F"
     - icon: ':warning:'
       path: math/fast_combination.cpp
-      title: math/fast_combination.cpp
+      title: Pre-Calculated Combination
     - icon: ':warning:'
       path: math/fraction.cpp
-      title: math/fraction.cpp
+      title: Fraction
     - icon: ':warning:'
       path: math/generate_primes.cpp
-      title: math/generate_primes.cpp
+      title: Generate primes
     - icon: ':warning:'
       path: math/matrix.cpp
-      title: math/matrix.cpp
+      title: Matrix
     - icon: ':warning:'
       path: math/point.cpp
-      title: math/point.cpp
+      title: For Geometry
     - icon: ':warning:'
       path: math/prime_factorize.cpp
-      title: math/prime_factorize.cpp
-    - icon: ':warning:'
-      path: math/prime_factors.cpp
-      title: math/prime_factors.cpp
+      title: Prime Factorize
   - name: mod
     pages:
     - icon: ':warning:'
@@ -100,12 +98,12 @@ data:
       title: Combination
     - icon: ':warning:'
       path: mod/modint.cpp
-      title: mod/modint.cpp
+      title: Modint
   - name: others
     pages:
     - icon: ':warning:'
       path: others/change_base_to_N.cpp
-      title: others/change_base_to_N.cpp
+      title: "N\u9032\u6570\u3078\u306E\u5909\u63DB"
     - icon: ':warning:'
       path: others/debug.cpp
       title: others/debug.cpp
@@ -122,7 +120,7 @@ data:
       title: Rolling Hash
     - icon: ':warning:'
       path: string/run_length_encoding.cpp
-      title: string/run_length_encoding.cpp
+      title: Run Length Encode
     - icon: ':warning:'
       path: string/z_algo.cpp
       title: Z-algorithm
