@@ -31,7 +31,7 @@ data:
       title: data_structure/ruq.cpp
     - icon: ':warning:'
       path: data_structure/segment_tree.cpp
-      title: data_structure/segment_tree.cpp
+      title: Segment Tree
     - icon: ':warning:'
       path: data_structure/tree.cpp
       title: data_structure/tree.cpp
