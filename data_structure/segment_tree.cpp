@@ -1,10 +1,15 @@
 #include <vector>
 #include <functional>
 
-template <typename T, typename F>
+/**
+ * @brief Segment Tree
+ */
+
+template <typename T>
 struct segment_tree {
 	int n;
 	std::vector<T> dat;
+	using F = std::function<T(T, T)>;
 	F f;
 	T e;
 	segment_tree(int n, F f, T e) {
