@@ -1,10 +1,17 @@
-// Dijkstra法 
-// O(Elog(E))
-// INF minの単位元
-template<typename T>
-vector<T> dijkstra(const vector<vector<pair<int, T>>> &G, int start = 0, T INF = LLONG_MAX) {
+#include <vector>
+#include <utility>
+#include <climits>
+
+/**
+ * @brief Dijkstra
+ * @attention O(Elog(E))
+ */
+
+template <typename T>
+std::vector<T> dijkstra(const std::vector<std::vector<std::pair<int, T>>> &G, int start = 0, T INF = LLONG_MAX) {
+	// O(Elog(E))
 	int n = G.size();
-	vector<T> dst(n, INF);
+	std::vector<T> dst(n, INF);
 	priority_queue<pair<T, int>> pq;
 	dst[start] = 0;
 	pq.push(make_pair(0, start));
@@ -16,7 +23,7 @@ vector<T> dijkstra(const vector<vector<pair<int, T>>> &G, int start = 0, T INF =
 		if (dst[now] < dst_sum) {
 			continue;
 		}
-		for (pair<int, T> P : G[now]) {
+		for (std::pair<int, T> P : G[now]) {
 			int nxt = P.first;
 			T cost = P.second;
 			if (dst[nxt] > dst[now] + cost) {

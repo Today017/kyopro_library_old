@@ -1,19 +1,22 @@
+#include <vector>
+#include <utility>
+
 /**
  * @brief Lowest Common Ancestor
  * @docs docs/graph/lca.md
-*/
+ */
 
 struct lowest_common_ancestor {
-	vector<vector<int>> parent;
-	vector<int> dst;
-	lowest_common_ancestor(vector<vector<int>> &G, int root = 0) {
+	std::vector<std::vector<int>> parent;
+	std::vector<int> dst;
+	lowest_common_ancestor(std::vector<std::vector<int>> &G, int root = 0) {
 		int n = G.size();
 		int k = 1;
 		while ((1 << k) < n) {
 			k++;
 		}
-		parent = vector<vector<int>>(k, vector<int>(n, -1));
-		dst = vector<int>(n, -1);
+		parent = std::vector<std::vector<int>>(k, std::vector<int>(n, -1));
+		dst = std::vector<int>(n, -1);
 		dfs(G, root, -1, 0);
 		for (int i = 0; i + 1 < k; i++) {
 			for (int j = 0; j < n; j++) {
@@ -25,7 +28,7 @@ struct lowest_common_ancestor {
 			}
 		}
 	}
-	void dfs(vector<vector<int>> &G, int now, int pre, int tmp) {
+	void dfs(std::vector<std::vector<int>> &G, int now, int pre, int tmp) {
 		parent[0][now] = pre;
 		dst[now] = tmp;
 		for (int nxt : G[now]) {
@@ -36,7 +39,7 @@ struct lowest_common_ancestor {
 	}
 	int lca(int u, int v) {
 		if (dst[u] < dst[v]) {
-			swap(u, v);
+			std::swap(u, v);
 		}
 		int k = parent.size();
 		for (int i = 0; i < k; i++) {

@@ -1,11 +1,13 @@
+#include <vector>
+
 /**
  * @brief Heavy-Light Decomposition
  * @docs docs/graph/hld.md
-*/
+ */
 
 struct heavy_light_decomposition {
-	vector<vector<int>> G;
-	vector<int> sz, parent, depth, hld, pos, head;
+	std::vector<std::vector<int>> G;
+	std::vector<int> sz, parent, depth, hld, pos, head;
 	heavy_light_decomposition(int n) {
 		G.resize(n);
 		sz.resize(n);
@@ -18,7 +20,7 @@ struct heavy_light_decomposition {
 		G[a].push_back(b);
 		G[b].push_back(a);
 	}
-	heavy_light_decomposition(const vector<vector<int>>& G) {
+	heavy_light_decomposition(const std::vector<std::vector<int>>& G) {
 		int n = G.size();
 		this->G = G;
 		sz.resize(n);
@@ -27,7 +29,7 @@ struct heavy_light_decomposition {
 		pos.resize(n);
 		head.resize(n);
 	}
-	vector<int> hld_start(int root = 0) {
+	std::vector<int> hld_start(int root = 0) {
 		dfs1(root);
 		dfs2(root);
 		dfs(root, root);

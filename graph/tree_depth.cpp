@@ -1,6 +1,12 @@
-vector<int> tree_depth(vector<vector<int>> &G, int root = 0) {
+#include <vector>
+
+/**
+ * @brief 木の深さ
+ */
+
+std::vector<int> tree_depth(std::vector<std::vector<int>> &G, int root = 0) {
 	int n = G.size();
-	vector<int> depth(n);
+	std::vector<int> depth(n);
 	auto dfs = [&](auto &&dfs, int now, int pre) -> void {
 		for (int nxt : G[now]) {
 			if (nxt != pre) {

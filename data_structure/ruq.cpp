@@ -1,14 +1,17 @@
+#include <vector>
+#include <utility>
+
 struct range_update_query {
 	int n;
 	int t;
-	vector<pair<int, int>> dat;
+	std::vector<std::pair<int, int>> dat;
 	range_update_query(int n) {
 		this->n = 1;
 		while (this->n < n) {
 			this->n *= 2;
 		}
 		this->t = 0;
-		dat.resize(this->n * 2 - 1, make_pair(0, -1));
+		dat.resize(this->n * 2 - 1, std::make_pair(0, -1));
 	}
 	int operator[](int i) {
 		i += n - 1;
@@ -26,7 +29,7 @@ struct range_update_query {
 		if (r <= left || right <= l) {
 			return;
 		} else if (left <= l && r <= right) {
-			dat[i] = make_pair(c, t);
+			dat[i] = std::make_pair(c, t);
 		} else {
 			int mid = (l + r) / 2;
 			query(left, right, i * 2 + 1, c, l, mid);

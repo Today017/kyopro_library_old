@@ -1,10 +1,13 @@
+#include <vector>
+#include <utility>
+
 /**
  * @brief Disjoint Set Union
  * @docs docs/graph/dsu.md
-*/
+ */
 
 struct dsu {
-	vector<int> par, sz;
+	std::vector<int> par, sz;
 	dsu(int n) {
 		par.resize(n);
 		sz.resize(n);
@@ -27,7 +30,7 @@ struct dsu {
 			return;
 		}
 		if (sz[x] < sz[y]) {
-			swap(x, y);
+			std::swap(x, y);
 		}
 		par[y] = x;
 		sz[x] += sz[y];

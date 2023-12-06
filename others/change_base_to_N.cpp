@@ -1,10 +1,13 @@
-// 10進数非負整数をN進数に変換する
-// Size 桁数
-// n    変換対象の10進数
-// base 基数
-// rev  変換後の数を反転させたままにするか否か
+#include <string>
+
+/**
+ * @brief N進数への変換
+ * @param Size 桁数
+ * @param base 基数
+ * @param rev 変換後の数を反転させたままにするか否か
+*/
 template<int Size = -1>
-string change_base(long long n, int base = 2, bool rev = true) {
+std::string change_base(long long n, int base = 2, bool rev = true) {
 	string ret;
 	if (n == 0) {
 		ret.push_back('0');

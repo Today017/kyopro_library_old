@@ -1,7 +1,14 @@
-vector<int> tree_diameter(vector<vector<int>>& G) {
+#include <vector>
+#include <algorithm>
+
+/**
+ * @brief 木の直径
+ */
+
+std::vector<int> tree_diameter(std::vector<std::vector<int>>& G) {
 	int n = G.size();
 	const int INF = 1001001001;
-	vector<int> dst(n, INF);
+	std::vector<int> dst(n, INF);
 	dst[0] = 0;
 	auto F1 = [&](auto&& F1, int now, int pre) -> void {
 		for (int nxt : G[now]) {
@@ -12,12 +19,12 @@ vector<int> tree_diameter(vector<vector<int>>& G) {
 		}
 	};
 	F1(F1, 0, -1);
-	int l = max_element(dst.begin(), dst.end()) - dst.begin();
-	dst = vector<int>(n, INF);
+	int l = std::max_element(dst.begin(), dst.end()) - dst.begin();
+	dst = std::vector<int>(n, INF);
 	dst[l] = 0;
 	F1(F1, l, -1);
 	int r = max_element(dst.begin(), dst.end()) - dst.begin();
-	vector<int> path;
+	std::vector<int> path;
 	auto F2 = [&](auto&& F2, int now, int pre) -> bool {
 		if (now == l) {
 			path.push_back(now);

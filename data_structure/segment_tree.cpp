@@ -1,7 +1,10 @@
+#include <vector>
+#include <functional>
+
 template <typename T, typename F>
 struct segment_tree {
 	int n;
-	vector<T> dat;
+	std::vector<T> dat;
 	F f;
 	T e;
 	segment_tree(int n, F f, T e) {

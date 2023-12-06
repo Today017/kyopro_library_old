@@ -1,11 +1,12 @@
+#include <vector>
 #include "data_structure/fenwick_tree.cpp"
 
 /**
  * @brief Inversion Number
  * @docs docs/algorithm/inversion_number.md
-*/
+ */
 
-long long inversion_number(const vector<int> &A) {
+long long inversion_number(const std::vector<int> &A) {
 	int n = A.size();
 	fenwick_tree<int> ft(n);
 	long long ret = 0;

@@ -1,18 +1,25 @@
-vector<int> topological_sort(const vector<vector<int>> &G) {
+#include <vector>
+#include <queue>
+
+/**
+ * @brief Topological Sort
+ */
+
+std::vector<int> topological_sort(const std::vector<std::vector<int>> &G) {
 	int n = G.size();
-	vector<int> indeg(n);
+	std::vector<int> indeg(n);
 	for (int i = 0; i < n; i++) {
 		for (int nxt : G[i]) {
 			indeg[nxt]++;
 		}
 	}
-	queue<int> Q;
+	std::queue<int> Q;
 	for (int i = 0; i < n; i++) {
 		if (indeg[i] == 0) {
 			Q.push(i);
 		}
 	}
-	vector<int> ret;
+	std::vector<int> ret;
 	while (!Q.empty()) {
 		int now = Q.front();
 		Q.pop();

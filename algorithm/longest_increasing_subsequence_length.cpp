@@ -1,8 +1,12 @@
-int longest_increasing_subsequence_length(vector<int> &A, bool strict = true) {
+#include <vector>
+#include <algorithm>
+#include <climits>
+
+int longest_increasing_subsequence_length(std::vector<int> &A, bool strict = true) {
 	int n = A.size();
-	vector<int> dp(n, INT_MAX);
+	std::vector<int> dp(n, INT_MAX);
 	for (int i = 0; i < n; i++) {
-		vector<int>::iterator itr;
+		std::vector<int>::iterator itr;
 		if (strict) {
 			itr = lower_bound(dp.begin(), dp.end(), A[i]);
 		} else {

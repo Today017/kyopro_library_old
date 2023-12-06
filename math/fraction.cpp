@@ -1,3 +1,9 @@
+#include <numeric>
+
+/**
+ * @brief Fraction
+ */
+
 struct fraction {
 	__int128_t p, q;
 	// p/q
@@ -6,7 +12,7 @@ struct fraction {
 		this->q = q;
 	}
 	void norm() {
-		__int128_t g = gcd(p, q);
+		__int128_t g = std::gcd(p, q);
 		p /= g;
 		q /= g;
 		if (q < 0) {

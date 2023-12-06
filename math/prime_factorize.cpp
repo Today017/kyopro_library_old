@@ -1,5 +1,13 @@
-vector<pair<long long, int>> prime_factorize(long long n) {
-	vector<pair<long long, int>> ret;
+#include <vector>
+#include <utility>
+
+/**
+ * @brief Prime Factorize
+ * @attention O(n sqrt(n))
+ */
+
+std::vector<std::pair<long long, int>> prime_factorize(long long n) {
+	std::vector<std::pair<long long, int>> ret;
 	for (long long i = 2; i * i <= n; i++) {
 		if (n % i != 0) {
 			continue;

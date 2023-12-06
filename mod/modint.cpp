@@ -1,3 +1,9 @@
+#include <iostream>
+
+/**
+ * @brief Modint
+ */
+
 template <unsigned long long MOD>
 struct modint {
 	unsigned long long value;
@@ -50,10 +56,10 @@ struct modint {
 	constexpr modint<MOD> inv() {
 		return pow(MOD - 2);
 	}
-	constexpr friend ostream &operator<<(ostream &os, const modint<MOD> &x) {
+	constexpr friend std::ostream &operator<<(ostream &os, const modint<MOD> &x) {
 		return os << x.value;
 	}
-	constexpr friend istream &operator>>(istream &is, modint<MOD> &x) {
+	constexpr friend std::istream &operator>>(istream &is, modint<MOD> &x) {
 		is >> x.value;
 		x.value %= MOD;
 		if (x.value < 0) {

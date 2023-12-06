@@ -1,16 +1,24 @@
-// ベルマンフォード法 (負のコストの辺を含む重み付き有向グラフに対して、単一始点最短経路問題を解く)
-// O(NM)
-// return 負のサイクルが存在しないか否か
-bool bellman_ford(const vector<tuple<int, int, long long>> &E, int n, int start, vector<long long> &dst, long long INF = LLONG_MAX) {
-	dst = vector<long long>(n, INF);
+#include <vector>
+#include <tuple>
+#include <climits>
+
+/**
+ * @brief Bellman Ford
+ * @attention O(VE)
+ * @return 負のサイクルを含むか否か
+ */
+
+template <typename T>
+bool bellman_ford(const std::vector<std::tuple<int, int, T>> &E, int n, int start, std::vector<T> &dst, T INF = LLONG_MAX) {
+	dst = std::vector<T>(n, INF);
 	dst[start] = 0;
 	int cnt = 0;
 	while (cnt < n) {
 		bool fin = true;
-		for (tuple<int, int, long long> T : E) {
+		for (std::tuple<int, int, T> T : E) {
 			int a, b;
-			long long c;
-			tie(a, b, c) = T;
+			T c;
+			std::tie(a, b, c) = T;
 			if (dst[a] != INF && dst[a] + c < dst[b]) {
 				dst[b] = dst[a] + c;
 				fin = false;

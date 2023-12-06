@@ -1,5 +1,11 @@
+#include <vector>
+
+/**
+ * @brief Matrix
+ */
+
 template <class T>
-using matrix = vector<vector<T>>;
+using matrix = std::vector<std::vector<T>>;
 template <class T>
 matrix<T> make_matrix(int n) {
 	vector<vector<T>> ret(n, vector<T>(n));

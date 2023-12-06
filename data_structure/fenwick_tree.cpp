@@ -1,12 +1,14 @@
+#include <vector>
+
 /**
  * @brief Fenwick Tree
  * @docs docs/data_structure/fenwick_tree.md
-*/
+ */
 
 template <typename T>
 struct fenwick_tree {
 	int n;
-	vector<T> dat;
+	std::vector<T> dat;
 	fenwick_tree(int n) {
 		this->n = n;
 		dat.resize(n);

@@ -1,8 +1,10 @@
-template <typename T, typename U>
+#include <vector>
+
+template <typename U, typename T>
 struct cumsum2D {
 	int n, m;
-	vector<vector<T>> S;
-	cumsum2D(vector<vector<U>> &A) {
+	std::vector<std::vector<T>> S;
+	cumsum2D(std::vector<vector<U>> &A) {
 		n = A.size();
 		m = A.front().size();
 		S.resize(n + 1);

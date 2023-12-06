@@ -1,3 +1,11 @@
+#include <iostream>
+#include <vector>
+#include <math.h>
+
+/**
+ * @brief For Geometry
+ */
+
 using Real = long double;
 const Real RINF = 1e20;
 const Real EPS = 1e-10;
@@ -42,10 +50,10 @@ struct point {
 	constexpr Real abs() {
 		return sqrt(norm());
 	}
-	constexpr friend ostream &operator<<(ostream &os, const point &p) {
+	constexpr friend std::ostream &operator<<(std::ostream &os, const point &p) {
 		return os << p.x << ' ' << p.y;
 	}
-	constexpr friend istream &operator>>(istream &is, point &p) {
+	constexpr friend std::istream &operator>>(std::istream &is, point &p) {
 		is >> p.x >> p.y;
 		return is;
 	}
@@ -60,7 +68,7 @@ struct point {
 	}
 };
 const point PINF = point(RINF, RINF);
-struct line : vector<point> {
+struct line : std::vector<point> {
 	line(point a = point(0.0, 0.0), point b = point(0.0, 0.0)) {
 		this->push_back(a);
 		this->push_back(b);
