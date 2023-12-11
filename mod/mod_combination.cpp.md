@@ -29,10 +29,10 @@ data:
     \ other) {\r\n\t\tvalue = value * other.value % MOD;\r\n\t\treturn *this;\r\n\t\
     }\r\n\tconstexpr modint<MOD> &operator/=(modint<MOD> other) {\r\n\t\t(*this) *=\
     \ other.inv();\r\n\t\treturn *this;\r\n\t}\r\n\tconstexpr modint<MOD> pow(long\
-    \ long x) {\r\n\t\tmodint<MOD> ret(1), _this(*this);\r\n\t\tfor (; x; x >>= 1,\
-    \ _this *= _this) {\r\n\t\t\tif (x & 1) {\r\n\t\t\t\tret *= _this;\r\n\t\t\t}\r\
-    \n\t\t}\r\n\t\treturn ret;\r\n\t}\r\n\tconstexpr modint<MOD> inv() {\r\n\t\treturn\
-    \ pow(MOD - 2);\r\n\t}\r\n\tconstexpr friend std::ostream &operator<<(ostream\
+    \ long x) {\r\n\t\tmodint<MOD> ret(1), _this(*this);\r\n\t\tfor (; x > 0; x >>=\
+    \ 1, _this *= _this) {\r\n\t\t\tif (x & 1) {\r\n\t\t\t\tret *= _this;\r\n\t\t\t\
+    }\r\n\t\t}\r\n\t\treturn ret;\r\n\t}\r\n\tconstexpr modint<MOD> inv() {\r\n\t\t\
+    return pow(MOD - 2);\r\n\t}\r\n\tconstexpr friend std::ostream &operator<<(ostream\
     \ &os, const modint<MOD> &x) {\r\n\t\treturn os << x.value;\r\n\t}\r\n\tconstexpr\
     \ friend std::istream &operator>>(istream &is, modint<MOD> &x) {\r\n\t\tis >>\
     \ x.value;\r\n\t\tx.value %= MOD;\r\n\t\tif (x.value < 0) {\r\n\t\t\tx.value +=\
@@ -61,7 +61,7 @@ data:
   isVerificationFile: false
   path: mod/mod_combination.cpp
   requiredBy: []
-  timestamp: '2023-12-06 10:41:43+09:00'
+  timestamp: '2023-12-11 19:09:51+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: mod/mod_combination.cpp
