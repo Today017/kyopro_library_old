@@ -46,7 +46,7 @@ struct modint {
 	}
 	constexpr modint<MOD> pow(long long x) {
 		modint<MOD> ret(1), _this(*this);
-		for (; x; x >>= 1, _this *= _this) {
+		for (; x > 0; x >>= 1, _this *= _this) {
 			if (x & 1) {
 				ret *= _this;
 			}
