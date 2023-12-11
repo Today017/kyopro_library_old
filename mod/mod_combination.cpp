@@ -1,4 +1,5 @@
 #include "mod/modint.cpp"
+#include <vector>
 
 /**
  * @brief Combination
@@ -6,7 +7,7 @@
 
 template <typename T>
 struct combination {
-	vector<T> fact, factinv;
+	std::vector<T> fact, factinv;
 	combination(int n) {
 		fact.resize(n + 1);
 		factinv.resize(n + 1);
