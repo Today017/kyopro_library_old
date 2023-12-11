@@ -6,65 +6,81 @@
 
 template <unsigned long long MOD>
 struct modint {
-	unsigned long long value;
-	constexpr modint(const long long x = 0) {
-		value = x % MOD;
+	long long value;
+	modint(long long x = 0) {
+		if (x >= 0) {
+			value = x;
+		} else {
+			value = MOD - (-x) % MOD;
+		}
 	}
-	constexpr modint<MOD> operator+(const modint<MOD> other) {
-		return modint<MOD>(*this) += other;
+	modint operator-() const {
+		return modint(-value);
 	}
-	constexpr modint<MOD> operator-(const modint<MOD> other) {
-		return modint<MOD>(*this) -= other;
+	modint operator+() const {
+		return modint(*this);
 	}
-	constexpr modint<MOD> operator*(const modint<MOD> other) {
-		return modint<MOD>(*this) *= other;
-	}
-	constexpr modint<MOD> operator/(const modint<MOD> other) {
-		return modint<MOD>(*this) /= other;
-	}
-	constexpr modint<MOD> &operator+=(const modint<MOD> other) {
+	modint &operator+=(const modint &other) {
 		value += other.value;
 		if (value >= MOD) {
 			value -= MOD;
 		}
 		return *this;
 	}
-	constexpr modint<MOD> &operator-=(const modint<MOD> other) {
-		if (value < other.value) {
-			value += MOD;
+	modint &operator-=(const modint &other) {
+		value += MOD - other.value;
+		if (value >= MOD) {
+			value -= MOD;
 		}
-		value -= other.value;
 		return *this;
 	}
-	constexpr modint<MOD> &operator*=(const modint<MOD> other) {
+	modint &operator*=(const modint other) {
 		value = value * other.value % MOD;
 		return *this;
 	}
-	constexpr modint<MOD> &operator/=(modint<MOD> other) {
+	modint &operator/=(modint other) {
 		(*this) *= other.inv();
 		return *this;
 	}
-	constexpr modint<MOD> pow(long long x) {
-		modint<MOD> ret(1), _this(*this);
-		for (; x > 0; x >>= 1, _this *= _this) {
-			if (x & 1) {
-				ret *= _this;
+	modint operator+(const modint &other) const {
+		return modint(*this) += other;
+	}
+	modint operator-(const modint &other) const {
+		return modint(*this) -= other;
+	}
+	modint operator*(const modint &other) const {
+		return modint(*this) *= other;
+	}
+	modint operator/(const modint &other) const {
+		return modint(*this) /= other;
+	}
+	modint pow(long long x) const {
+		modint ret(1), mul(value);
+		while (x > 0) {
+			if (x % 2 ==1) {
+				ret *= mul;
 			}
+			mul *= mul;
+			x /= 2;
 		}
 		return ret;
 	}
-	constexpr modint<MOD> inv() {
+	modint inv() const {
 		return pow(MOD - 2);
 	}
-	constexpr friend std::ostream &operator<<(ostream &os, const modint<MOD> &x) {
+	const bool operator==(const modint &other) {
+		return value == other.value;
+	}
+	const bool operator!=(const modint &other) {
+		return value != other.value;
+	}
+	friend std::ostream &operator<<(ostream &os, const modint &x) {
 		return os << x.value;
 	}
-	constexpr friend std::istream &operator>>(istream &is, modint<MOD> &x) {
-		is >> x.value;
-		x.value %= MOD;
-		if (x.value < 0) {
-			x.value += MOD;
-		}
+	friend std::istream &operator>>(istream &is, modint &x) {
+		long long v;
+		is >> v;
+		x = modint<MOD>(v);
 		return is;
 	}
 };
