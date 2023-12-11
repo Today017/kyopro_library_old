@@ -37,31 +37,32 @@ data:
     \ friend std::istream &operator>>(istream &is, modint<MOD> &x) {\r\n\t\tis >>\
     \ x.value;\r\n\t\tx.value %= MOD;\r\n\t\tif (x.value < 0) {\r\n\t\t\tx.value +=\
     \ MOD;\r\n\t\t}\r\n\t\treturn is;\r\n\t}\r\n};\r\nusing mod998 = modint<998244353>;\r\
-    \nusing mod107 = modint<1000000007>;\n#line 2 \"mod/mod_combination.cpp\"\n\n\
-    /**\n * @brief Combination\n */\n\ntemplate <typename T>\nstruct combination {\n\
-    \tvector<T> fact, factinv;\n\tcombination(int n) {\n\t\tfact.resize(n + 1);\n\t\
-    \tfactinv.resize(n + 1);\n\t\tfact[0] = 1;\n\t\tfor (int i = 1; i <= n; i++) {\n\
-    \t\t\tfact[i] = fact[i - 1] * i;\n\t\t}\n\t\tfor (int i = 0; i <= n; i++) {\n\t\
-    \t\tfactinv[i] = fact[i].inv();\n\t\t}\n\t}\n\tT nCr(long long n, long long r)\
-    \ {\n\t\tif (n < 0 || r < 0 || n - r < 0) {\n\t\t\treturn 0;\n\t\t}\n\t\treturn\
-    \ fact[n] * factinv[r] * factinv[n - r];\n\t}\n\tT nPr(long long n, long long\
-    \ r) {\n\t\tif (n < 0 || r < 0 || n - r < 0) {\n\t\t\treturn 0;\n\t\t}\n\t\treturn\
-    \ fact[n] * factinv[n - r];\n\t}\n};\n"
-  code: "#include \"mod/modint.cpp\"\n\n/**\n * @brief Combination\n */\n\ntemplate\
-    \ <typename T>\nstruct combination {\n\tvector<T> fact, factinv;\n\tcombination(int\
-    \ n) {\n\t\tfact.resize(n + 1);\n\t\tfactinv.resize(n + 1);\n\t\tfact[0] = 1;\n\
-    \t\tfor (int i = 1; i <= n; i++) {\n\t\t\tfact[i] = fact[i - 1] * i;\n\t\t}\n\t\
-    \tfor (int i = 0; i <= n; i++) {\n\t\t\tfactinv[i] = fact[i].inv();\n\t\t}\n\t\
-    }\n\tT nCr(long long n, long long r) {\n\t\tif (n < 0 || r < 0 || n - r < 0) {\n\
-    \t\t\treturn 0;\n\t\t}\n\t\treturn fact[n] * factinv[r] * factinv[n - r];\n\t\
-    }\n\tT nPr(long long n, long long r) {\n\t\tif (n < 0 || r < 0 || n - r < 0) {\n\
-    \t\t\treturn 0;\n\t\t}\n\t\treturn fact[n] * factinv[n - r];\n\t}\n};"
+    \nusing mod107 = modint<1000000007>;\n#line 2 \"mod/mod_combination.cpp\"\n#include\
+    \ <vector>\n\n/**\n * @brief Combination\n */\n\ntemplate <typename T>\nstruct\
+    \ combination {\n\tstd::vector<T> fact, factinv;\n\tcombination(int n) {\n\t\t\
+    fact.resize(n + 1);\n\t\tfactinv.resize(n + 1);\n\t\tfact[0] = 1;\n\t\tfor (int\
+    \ i = 1; i <= n; i++) {\n\t\t\tfact[i] = fact[i - 1] * i;\n\t\t}\n\t\tfor (int\
+    \ i = 0; i <= n; i++) {\n\t\t\tfactinv[i] = fact[i].inv();\n\t\t}\n\t}\n\tT nCr(long\
+    \ long n, long long r) {\n\t\tif (n < 0 || r < 0 || n - r < 0) {\n\t\t\treturn\
+    \ 0;\n\t\t}\n\t\treturn fact[n] * factinv[r] * factinv[n - r];\n\t}\n\tT nPr(long\
+    \ long n, long long r) {\n\t\tif (n < 0 || r < 0 || n - r < 0) {\n\t\t\treturn\
+    \ 0;\n\t\t}\n\t\treturn fact[n] * factinv[n - r];\n\t}\n};\n"
+  code: "#include \"mod/modint.cpp\"\n#include <vector>\n\n/**\n * @brief Combination\n\
+    \ */\n\ntemplate <typename T>\nstruct combination {\n\tstd::vector<T> fact, factinv;\n\
+    \tcombination(int n) {\n\t\tfact.resize(n + 1);\n\t\tfactinv.resize(n + 1);\n\t\
+    \tfact[0] = 1;\n\t\tfor (int i = 1; i <= n; i++) {\n\t\t\tfact[i] = fact[i - 1]\
+    \ * i;\n\t\t}\n\t\tfor (int i = 0; i <= n; i++) {\n\t\t\tfactinv[i] = fact[i].inv();\n\
+    \t\t}\n\t}\n\tT nCr(long long n, long long r) {\n\t\tif (n < 0 || r < 0 || n -\
+    \ r < 0) {\n\t\t\treturn 0;\n\t\t}\n\t\treturn fact[n] * factinv[r] * factinv[n\
+    \ - r];\n\t}\n\tT nPr(long long n, long long r) {\n\t\tif (n < 0 || r < 0 || n\
+    \ - r < 0) {\n\t\t\treturn 0;\n\t\t}\n\t\treturn fact[n] * factinv[n - r];\n\t\
+    }\n};"
   dependsOn:
   - mod/modint.cpp
   isVerificationFile: false
   path: mod/mod_combination.cpp
   requiredBy: []
-  timestamp: '2023-12-11 19:09:51+09:00'
+  timestamp: '2023-12-11 19:12:11+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: mod/mod_combination.cpp
