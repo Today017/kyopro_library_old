@@ -33,6 +33,9 @@ data:
       path: data_structure/segment_tree.cpp
       title: Segment Tree
     - icon: ':warning:'
+      path: data_structure/segment_tree_lazy.cpp
+      title: Segment Tree Lazy
+    - icon: ':warning:'
       path: data_structure/tree.cpp
       title: data_structure/tree.cpp
   - name: graph

@@ -16,8 +16,8 @@ data:
     #include <random>\n#include <tuple>\n#line 1 \"mod/modint.cpp\"\n#include <iostream>\r\
     \n\r\n/**\r\n * @brief Modint\r\n */\r\n\r\ntemplate <unsigned long long MOD>\r\
     \nstruct modint {\r\n\tlong long value;\r\n\tmodint(long long x = 0) {\r\n\t\t\
-    if (x >= 0) {\r\n\t\t\tvalue = x;\r\n\t\t} else {\r\n\t\t\tvalue = MOD - (-x)\
-    \ % MOD;\r\n\t\t}\r\n\t}\r\n\tmodint operator-() const {\r\n\t\treturn modint(-value);\r\
+    if (x >= 0) {\r\n\t\t\tvalue = x % MOD;\r\n\t\t} else {\r\n\t\t\tvalue = MOD -\
+    \ (-x) % MOD;\r\n\t\t}\r\n\t}\r\n\tmodint operator-() const {\r\n\t\treturn modint(-value);\r\
     \n\t}\r\n\tmodint operator+() const {\r\n\t\treturn modint(*this);\r\n\t}\r\n\t\
     modint &operator+=(const modint &other) {\r\n\t\tvalue += other.value;\r\n\t\t\
     if (value >= MOD) {\r\n\t\t\tvalue -= MOD;\r\n\t\t}\r\n\t\treturn *this;\r\n\t\
@@ -31,19 +31,19 @@ data:
     \n\t}\r\n\tmodint operator*(const modint &other) const {\r\n\t\treturn modint(*this)\
     \ *= other;\r\n\t}\r\n\tmodint operator/(const modint &other) const {\r\n\t\t\
     return modint(*this) /= other;\r\n\t}\r\n\tmodint pow(long long x) const {\r\n\
-    \t\tmodint ret(1), mul(value);\r\n\t\twhile (x > 0) {\r\n\t\t\tif (x % 2 ==1)\
+    \t\tmodint ret(1), mul(value);\r\n\t\twhile (x > 0) {\r\n\t\t\tif (x % 2 == 1)\
     \ {\r\n\t\t\t\tret *= mul;\r\n\t\t\t}\r\n\t\t\tmul *= mul;\r\n\t\t\tx /= 2;\r\n\
     \t\t}\r\n\t\treturn ret;\r\n\t}\r\n\tmodint inv() const {\r\n\t\treturn pow(MOD\
-    \ - 2);\r\n\t}\r\n\tconst bool operator==(const modint &other) {\r\n\t\treturn\
-    \ value == other.value;\r\n\t}\r\n\tconst bool operator!=(const modint &other)\
-    \ {\r\n\t\treturn value != other.value;\r\n\t}\r\n\tfriend std::ostream &operator<<(ostream\
+    \ - 2);\r\n\t}\r\n\tbool operator==(const modint &other) const {\r\n\t\treturn\
+    \ value == other.value;\r\n\t}\r\n\tbool operator!=(const modint &other) const\
+    \ {\r\n\t\treturn value != other.value;\r\n\t}\r\n\tfriend std::ostream &operator<<(std::ostream\
     \ &os, const modint &x) {\r\n\t\treturn os << x.value;\r\n\t}\r\n\tfriend std::istream\
-    \ &operator>>(istream &is, modint &x) {\r\n\t\tlong long v;\r\n\t\tis >> v;\r\n\
-    \t\tx = modint<MOD>(v);\r\n\t\treturn is;\r\n\t}\r\n};\r\nusing mod998 = modint<998244353>;\r\
-    \nusing mod107 = modint<1000000007>;\n#line 6 \"string/rolling_hash.cpp\"\n\n\
-    /**\n * @brief Rolling Hash\n */\n\nstruct rolling_hash {\n\tusing mint1 = modint<998244353>;\n\
-    \tusing mint2 = modint<1000000007>;\n\tusing mint3 = modint<1000000009>;\n\tusing\
-    \ mint4 = modint<1000000021>;\n\tusing mint5 = modint<1000000033>;\n\tstd::vector<long\
+    \ &operator>>(std::istream &is, modint &x) {\r\n\t\tlong long v;\r\n\t\tis >>\
+    \ v;\r\n\t\tx = modint<MOD>(v);\r\n\t\treturn is;\r\n\t}\r\n};\r\nusing mod998\
+    \ = modint<998244353>;\r\nusing mod107 = modint<1000000007>;\n#line 6 \"string/rolling_hash.cpp\"\
+    \n\n/**\n * @brief Rolling Hash\n */\n\nstruct rolling_hash {\n\tusing mint1 =\
+    \ modint<998244353>;\n\tusing mint2 = modint<1000000007>;\n\tusing mint3 = modint<1000000009>;\n\
+    \tusing mint4 = modint<1000000021>;\n\tusing mint5 = modint<1000000033>;\n\tstd::vector<long\
     \ long> BASE;\n\tstd::vector<mint1> power1, hash1, inv1;\n\tstd::vector<mint2>\
     \ power2, hash2, inv2;\n\tstd::vector<mint3> power3, hash3, inv3;\n\tstd::vector<mint4>\
     \ power4, hash4, inv4;\n\tstd::vector<mint5> power5, hash5, inv5;\n\trolling_hash(std::string\
@@ -121,7 +121,7 @@ data:
   isVerificationFile: false
   path: string/rolling_hash.cpp
   requiredBy: []
-  timestamp: '2023-12-11 20:59:16+09:00'
+  timestamp: '2023-12-12 15:44:20+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: string/rolling_hash.cpp
