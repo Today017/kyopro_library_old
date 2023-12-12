@@ -17,9 +17,17 @@ struct segment_tree {
 		while (this->n < n) {
 			this->n *= 2;
 		}
-		dat.resize(this->n * 2 - 1, e);
 		this->f = f;
 		this->e = e;
+		dat.resize(this->n * 2 - 1, e);
+	}
+	void build(const vector<T> &A) {
+		for (int i = 0; i < (int)A.size(); i++) {
+			dat[i + n - 1] = A[i];
+		}
+		for (int i = n - 2; i >= 0; i--) {
+			dat[i] = f(dat[i * 2 + 1], dat[i * 2 + 2]);
+		}
 	}
 	T operator[](int i) {
 		return dat[n - 1 + i];
