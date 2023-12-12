@@ -9,7 +9,7 @@ struct modint {
 	long long value;
 	modint(long long x = 0) {
 		if (x >= 0) {
-			value = x;
+			value = x % MOD;
 		} else {
 			value = MOD - (-x) % MOD;
 		}
@@ -57,7 +57,7 @@ struct modint {
 	modint pow(long long x) const {
 		modint ret(1), mul(value);
 		while (x > 0) {
-			if (x % 2 ==1) {
+			if (x % 2 == 1) {
 				ret *= mul;
 			}
 			mul *= mul;
@@ -68,16 +68,16 @@ struct modint {
 	modint inv() const {
 		return pow(MOD - 2);
 	}
-	const bool operator==(const modint &other) {
+	bool operator==(const modint &other) const {
 		return value == other.value;
 	}
-	const bool operator!=(const modint &other) {
+	bool operator!=(const modint &other) const {
 		return value != other.value;
 	}
-	friend std::ostream &operator<<(ostream &os, const modint &x) {
+	friend std::ostream &operator<<(std::ostream &os, const modint &x) {
 		return os << x.value;
 	}
-	friend std::istream &operator>>(istream &is, modint &x) {
+	friend std::istream &operator>>(std::istream &is, modint &x) {
 		long long v;
 		is >> v;
 		x = modint<MOD>(v);
