@@ -1,5 +1,6 @@
 #include <vector>
 #include <functional>
+#include <limits>
 
 /**
  * @brief Segment Tree
@@ -21,7 +22,7 @@ struct segment_tree {
 		this->e = e;
 		dat.resize(this->n * 2 - 1, e);
 	}
-	void build(const vector<T> &A) {
+	void build(const std::vector<T> &A) {
 		for (int i = 0; i < (int)A.size(); i++) {
 			dat[i + n - 1] = A[i];
 		}
@@ -54,3 +55,19 @@ struct segment_tree {
 		return query(l, r, 0, 0, n);
 	}
 };
+
+template <typename U>
+segment_tree<U> range_min_query(int n, U e = std::numeric_limits<U>::max()) {
+	auto f = [](U a, U b) {
+		return std::min(a, b);
+	};
+	return segment_tree<U>(n, f, e);
+}
+
+template <typename U>
+segment_tree<U> range_max_query(int n, U e = std::numeric_limits<U>::min()) {
+	auto f = [](U a, U b) {
+		return std::max(a, b);
+	};
+	return segment_tree<U>(n, f, e);
+}
