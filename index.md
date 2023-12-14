@@ -20,6 +20,9 @@ data:
       title: algorithm/mo.cpp
   - name: data_structure
     pages:
+    - icon: ':warning:'
+      path: data_structure/binary_trie.cpp
+      title: Binary Trie
     - icon: ':heavy_check_mark:'
       path: data_structure/fenwick_tree.cpp
       title: Fenwick Tree

@@ -14,10 +14,10 @@ data:
     links: []
   bundledCode: "#line 1 \"string/rolling_hash.cpp\"\n#include <vector>\n#include <string>\n\
     #include <random>\n#include <tuple>\n#line 1 \"mod/modint.cpp\"\n#include <iostream>\r\
-    \n\r\n/**\r\n * @brief Modint\r\n */\r\n\r\ntemplate <unsigned long long MOD>\r\
-    \nstruct modint {\r\n\tlong long value;\r\n\tmodint(long long x = 0) {\r\n\t\t\
-    if (x >= 0) {\r\n\t\t\tvalue = x % MOD;\r\n\t\t} else {\r\n\t\t\tvalue = MOD -\
-    \ (-x) % MOD;\r\n\t\t}\r\n\t}\r\n\tmodint operator-() const {\r\n\t\treturn modint(-value);\r\
+    \n\r\n/**\r\n * @brief Modint\r\n */\r\n\r\ntemplate <long long MOD>\r\nstruct\
+    \ modint {\r\n\tlong long value;\r\n\tmodint(long long x = 0) {\r\n\t\tif (x >=\
+    \ 0) {\r\n\t\t\tvalue = x % MOD;\r\n\t\t} else {\r\n\t\t\tvalue = MOD - (-x) %\
+    \ MOD;\r\n\t\t}\r\n\t}\r\n\tmodint operator-() const {\r\n\t\treturn modint(-value);\r\
     \n\t}\r\n\tmodint operator+() const {\r\n\t\treturn modint(*this);\r\n\t}\r\n\t\
     modint &operator+=(const modint &other) {\r\n\t\tvalue += other.value;\r\n\t\t\
     if (value >= MOD) {\r\n\t\t\tvalue -= MOD;\r\n\t\t}\r\n\t\treturn *this;\r\n\t\
@@ -40,7 +40,7 @@ data:
     \ &os, const modint &x) {\r\n\t\treturn os << x.value;\r\n\t}\r\n\tfriend std::istream\
     \ &operator>>(std::istream &is, modint &x) {\r\n\t\tlong long v;\r\n\t\tis >>\
     \ v;\r\n\t\tx = modint<MOD>(v);\r\n\t\treturn is;\r\n\t}\r\n};\r\nusing mod998\
-    \ = modint<998244353>;\r\nusing mod107 = modint<1000000007>;\n#line 6 \"string/rolling_hash.cpp\"\
+    \ = modint<998244353>;\r\nusing mod107 = modint<1000000007>;\r\n#line 6 \"string/rolling_hash.cpp\"\
     \n\n/**\n * @brief Rolling Hash\n */\n\nstruct rolling_hash {\n\tusing mint1 =\
     \ modint<998244353>;\n\tusing mint2 = modint<1000000007>;\n\tusing mint3 = modint<1000000009>;\n\
     \tusing mint4 = modint<1000000021>;\n\tusing mint5 = modint<1000000033>;\n\tstd::vector<long\
@@ -121,7 +121,7 @@ data:
   isVerificationFile: false
   path: string/rolling_hash.cpp
   requiredBy: []
-  timestamp: '2023-12-12 15:44:20+09:00'
+  timestamp: '2023-12-15 01:46:07+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: string/rolling_hash.cpp
