@@ -4,7 +4,7 @@
  * @brief Modint
  */
 
-template <unsigned long long MOD>
+template <long long MOD>
 struct modint {
 	long long value;
 	modint(long long x = 0) {
