@@ -16,25 +16,26 @@ struct binary_trie {
 		}
 		return root->size;
 	}
-	void insert(T x) {
-		root = insert(root, x, LOG - 1);
+	void insert(T x, int cnt = 1) {
+		root = insert(root, x, LOG - 1, cnt);
 	}
-	void erase(T x) {
-		if (count(x) == 0) {
+	void erase(T x, int cnt = 1) {
+		cnt = std::min(cnt, count(x));
+		if (cnt == 0) {
 			return;
 		}
-		root = erase(root, x, LOG - 1);
+		root = erase(root, x, LOG - 1, cnt);
 	}
 	void apply_xor(T x) {
 		if (root != nullptr) {
 			root->lazy ^= x;
 		}
 	}
-	T max_element(T xor_val = 0) {
-		return get_min(root, ~xor_val, LOG - 1);
+	T max_element(T bias = 0) {
+		return get_min(root, ~bias, LOG - 1);
 	}
-	T min_element(T xor_val = 0) {
-		return get_min(root, xor_val, LOG - 1);
+	T min_element(T bias = 0) {
+		return get_min(root, bias, LOG - 1);
 	}
 	T operator[](int k) {
 		assert(0 <= k && k < size());
@@ -85,22 +86,22 @@ struct binary_trie {
 		}
 		v->lazy = 0;
 	}
-	node* insert(node* v, T x, int bit) {
+	node* insert(node* v, T x, int bit, int cnt) {
 		if (v == nullptr) {
 			v = new node;
 		}
-		v->size++;
+		v->size += cnt;
 		if (bit < 0) {
 			return v;
 		}
 		evaluate(v, bit);
 		int lr = (x >> bit) & 1;
-		v->next[lr] = insert(v->next[lr], x, bit - 1);
+		v->next[lr] = insert(v->next[lr], x, bit - 1, cnt);
 		return v;
 	}
-	node* erase(node* v, T x, int bit) {
+	node* erase(node* v, T x, int bit, int cnt) {
 		assert(v != nullptr);
-		v->size--;
+		v->size -= cnt;
 		if (v->size == 0) {
 			return nullptr;
 		}
@@ -109,7 +110,7 @@ struct binary_trie {
 		}
 		evaluate(v, bit);
 		int lr = (x >> bit) & 1;
-		v->next[lr] = erase(v->next[lr], x, bit - 1);
+		v->next[lr] = erase(v->next[lr], x, bit - 1, cnt);
 		return v;
 	}
 	T get_min(node* v, T x, int bit) {
