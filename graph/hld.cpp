@@ -27,6 +27,12 @@ struct heavy_light_decomposition {
 		pos.resize(n);
 		head.resize(n);
 	}
+	std::vector<int> hld_start(int root = 0) {
+		dfs1(root);
+		dfs2(root);
+		dfs(root, root);
+		return hld;
+	}
 	int lca(int u, int v) {
 		while (head[u] != head[v]) {
 			if (depth[head[u]] > depth[head[v]]) {
@@ -61,12 +67,6 @@ struct heavy_light_decomposition {
 	private:
 	std::vector<std::vector<int>> G;
 	std::vector<int> sz, parent, depth, hld, pos, head;
-	std::vector<int> hld_start(int root = 0) {
-		dfs1(root);
-		dfs2(root);
-		dfs(root, root);
-		return hld;
-	}
 	void dfs(int now, int a, int pre = -1) {
 		pos[now] = hld.size();
 		hld.push_back(now);
