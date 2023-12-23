@@ -1,17 +1,17 @@
 ---
 data:
   _extendedDependsOn:
-  - icon: ':question:'
+  - icon: ':heavy_check_mark:'
     path: data_structure/fenwick_tree.cpp
     title: Fenwick Tree
-  - icon: ':x:'
+  - icon: ':heavy_check_mark:'
     path: graph/hld.cpp
     title: Heavy-Light Decomposition
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
-  _isVerificationFailed: true
+  _isVerificationFailed: false
   _pathExtension: cpp
-  _verificationStatusIcon: ':x:'
+  _verificationStatusIcon: ':heavy_check_mark:'
   attributes:
     '*NOT_SPECIAL_COMMENTS*': ''
     PROBLEM: https://judge.yosupo.jp/problem/vertex_add_path_sum
@@ -27,21 +27,21 @@ data:
     \n\t\tG[b].push_back(a);\r\n\t}\r\n\theavy_light_decomposition(const std::vector<std::vector<int>>&\
     \ G) {\r\n\t\tint n = G.size();\r\n\t\tthis->G = G;\r\n\t\tsz.resize(n);\r\n\t\
     \tparent.resize(n);\r\n\t\tdepth.resize(n);\r\n\t\tpos.resize(n);\r\n\t\thead.resize(n);\r\
-    \n\t}\r\n\tint lca(int u, int v) {\r\n\t\twhile (head[u] != head[v]) {\r\n\t\t\
-    \tif (depth[head[u]] > depth[head[v]]) {\r\n\t\t\t\tu = parent[head[u]];\r\n\t\
-    \t\t} else {\r\n\t\t\t\tv = parent[head[v]];\r\n\t\t\t}\r\n\t\t}\r\n\t\treturn\
-    \ depth[u] < depth[v] ? u : v;\r\n\t}\r\n\ttemplate <typename U>\r\n\tvoid update(int\
-    \ x, U& Update) {\r\n\t\tUpdate(x, pos[x]);\r\n\t}\r\n\ttemplate <typename Q,\
-    \ typename F, typename T>\r\n\tT query(int u, int v, Q& Query, F& f, T e) {\r\n\
-    \t\tT ret = e;\r\n\t\twhile (head[u] != head[v]) {\r\n\t\t\tif (depth[head[u]]\
-    \ < depth[head[v]]) {\r\n\t\t\t\tswap(u, v);\r\n\t\t\t}\r\n\t\t\tret = f(ret,\
-    \ Query(pos[head[u]], pos[u] + 1));\r\n\t\t\tu = parent[head[u]];\r\n\t\t}\r\n\
-    \t\tif (depth[u] > depth[v]) {\r\n\t\t\tswap(u, v);\r\n\t\t}\r\n\t\tret = f(ret,\
-    \ Query(pos[u], pos[v] + 1));\r\n\t\treturn ret;\r\n\t}\r\n\r\n\tprivate:\r\n\t\
-    std::vector<std::vector<int>> G;\r\n\tstd::vector<int> sz, parent, depth, hld,\
-    \ pos, head;\r\n\tstd::vector<int> hld_start(int root = 0) {\r\n\t\tdfs1(root);\r\
-    \n\t\tdfs2(root);\r\n\t\tdfs(root, root);\r\n\t\treturn hld;\r\n\t}\r\n\tvoid\
-    \ dfs(int now, int a, int pre = -1) {\r\n\t\tpos[now] = hld.size();\r\n\t\thld.push_back(now);\r\
+    \n\t}\r\n\tstd::vector<int> hld_start(int root = 0) {\r\n\t\tdfs1(root);\r\n\t\
+    \tdfs2(root);\r\n\t\tdfs(root, root);\r\n\t\treturn hld;\r\n\t}\r\n\tint lca(int\
+    \ u, int v) {\r\n\t\twhile (head[u] != head[v]) {\r\n\t\t\tif (depth[head[u]]\
+    \ > depth[head[v]]) {\r\n\t\t\t\tu = parent[head[u]];\r\n\t\t\t} else {\r\n\t\t\
+    \t\tv = parent[head[v]];\r\n\t\t\t}\r\n\t\t}\r\n\t\treturn depth[u] < depth[v]\
+    \ ? u : v;\r\n\t}\r\n\ttemplate <typename U>\r\n\tvoid update(int x, U& Update)\
+    \ {\r\n\t\tUpdate(x, pos[x]);\r\n\t}\r\n\ttemplate <typename Q, typename F, typename\
+    \ T>\r\n\tT query(int u, int v, Q& Query, F& f, T e) {\r\n\t\tT ret = e;\r\n\t\
+    \twhile (head[u] != head[v]) {\r\n\t\t\tif (depth[head[u]] < depth[head[v]]) {\r\
+    \n\t\t\t\tswap(u, v);\r\n\t\t\t}\r\n\t\t\tret = f(ret, Query(pos[head[u]], pos[u]\
+    \ + 1));\r\n\t\t\tu = parent[head[u]];\r\n\t\t}\r\n\t\tif (depth[u] > depth[v])\
+    \ {\r\n\t\t\tswap(u, v);\r\n\t\t}\r\n\t\tret = f(ret, Query(pos[u], pos[v] + 1));\r\
+    \n\t\treturn ret;\r\n\t}\r\n\r\n\tprivate:\r\n\tstd::vector<std::vector<int>>\
+    \ G;\r\n\tstd::vector<int> sz, parent, depth, hld, pos, head;\r\n\tvoid dfs(int\
+    \ now, int a, int pre = -1) {\r\n\t\tpos[now] = hld.size();\r\n\t\thld.push_back(now);\r\
     \n\t\thead[now] = a;\r\n\t\tif (sz[now] == 1) {\r\n\t\t\treturn;\r\n\t\t}\r\n\t\
     \tint mx = 0;\r\n\t\tint mx_idx = 0;\r\n\t\tfor (int nxt : G[now]) {\r\n\t\t\t\
     if (nxt == pre) {\r\n\t\t\t\tcontinue;\r\n\t\t\t}\r\n\t\t\tif (mx < sz[nxt]) {\r\
@@ -100,8 +100,8 @@ data:
   isVerificationFile: true
   path: test/graph/hl_decomposition/hld.test.cpp
   requiredBy: []
-  timestamp: '2023-12-24 07:38:27+09:00'
-  verificationStatus: TEST_WRONG_ANSWER
+  timestamp: '2023-12-24 07:41:48+09:00'
+  verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/hl_decomposition/hld.test.cpp
 layout: document
