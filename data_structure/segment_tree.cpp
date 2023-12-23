@@ -8,11 +8,6 @@
 
 template <typename T>
 struct segment_tree {
-	int n;
-	std::vector<T> dat;
-	using F = std::function<T(T, T)>;
-	F f;
-	T e;
 	segment_tree(int n, F f, T e) {
 		this->n = 1;
 		while (this->n < n) {
@@ -41,6 +36,16 @@ struct segment_tree {
 			dat[i] = f(dat[i * 2 + 1], dat[i * 2 + 2]);
 		}
 	}
+	T query(int l, int r) {
+		return query(l, r, 0, 0, n);
+	}
+
+	private:
+	int n;
+	std::vector<T> dat;
+	using F = std::function<T(T, T)>;
+	F f;
+	T e;
 	T query(int left, int right, int i, int l, int r) {
 		if (r <= left || right <= l) {
 			return e;
@@ -50,9 +55,6 @@ struct segment_tree {
 			int mid = (l + r) / 2;
 			return f(query(left, right, i * 2 + 1, l, mid), query(left, right, i * 2 + 2, mid, r));
 		}
-	}
-	T query(int l, int r) {
-		return query(l, r, 0, 0, n);
 	}
 };
 
@@ -68,6 +70,14 @@ template <typename U>
 segment_tree<U> range_max_query(int n, U e = std::numeric_limits<U>::min()) {
 	auto f = [](U a, U b) {
 		return std::max(a, b);
+	};
+	return segment_tree<U>(n, f, e);
+}
+
+template <typename U>
+segment_tree<U> range_sum_query(int n, U e = 0) {
+	auto f = [](U a, U b) {
+		return a + b;
 	};
 	return segment_tree<U>(n, f, e);
 }
