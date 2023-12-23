@@ -15,32 +15,32 @@ data:
     links: []
   bundledCode: "#line 1 \"graph/dsu.cpp\"\n#include <vector>\r\n#include <utility>\r\
     \n\r\n/**\r\n * @brief Disjoint Set Union\r\n * @docs docs/graph/dsu.md\r\n */\r\
-    \n\r\nstruct dsu {\r\n\tstd::vector<int> par, sz;\r\n\tdsu(int n) {\r\n\t\tpar.resize(n);\r\
-    \n\t\tsz.resize(n);\r\n\t\tfor (int i = 0; i < n; i++) {\r\n\t\t\tpar[i] = i;\r\
-    \n\t\t\tsz[i] = 1;\r\n\t\t}\r\n\t}\r\n\tint find(int x) {\r\n\t\tif (par[x] ==\
-    \ x) {\r\n\t\t\treturn x;\r\n\t\t}\r\n\t\tpar[x] = find(par[x]);\r\n\t\treturn\
-    \ par[x];\r\n\t}\r\n\tvoid unite(int x, int y) {\r\n\t\tx = find(x);\r\n\t\ty\
-    \ = find(y);\r\n\t\tif (x == y) {\r\n\t\t\treturn;\r\n\t\t}\r\n\t\tif (sz[x] <\
-    \ sz[y]) {\r\n\t\t\tstd::swap(x, y);\r\n\t\t}\r\n\t\tpar[y] = x;\r\n\t\tsz[x]\
-    \ += sz[y];\r\n\t}\r\n\tint size(int x) {\r\n\t\treturn sz[find(x)];\r\n\t}\r\n\
-    \tbool is_united(int x, int y) {\r\n\t\treturn find(x) == find(y);\r\n\t}\r\n\
-    };\r\n"
+    \n\r\nstruct dsu {\r\n\tdsu(int n) {\r\n\t\tpar.resize(n);\r\n\t\tsz.resize(n);\r\
+    \n\t\tfor (int i = 0; i < n; i++) {\r\n\t\t\tpar[i] = i;\r\n\t\t\tsz[i] = 1;\r\
+    \n\t\t}\r\n\t}\r\n\tint find(int x) {\r\n\t\tif (par[x] == x) {\r\n\t\t\treturn\
+    \ x;\r\n\t\t}\r\n\t\tpar[x] = find(par[x]);\r\n\t\treturn par[x];\r\n\t}\r\n\t\
+    void unite(int x, int y) {\r\n\t\tx = find(x);\r\n\t\ty = find(y);\r\n\t\tif (x\
+    \ == y) {\r\n\t\t\treturn;\r\n\t\t}\r\n\t\tif (sz[x] < sz[y]) {\r\n\t\t\tstd::swap(x,\
+    \ y);\r\n\t\t}\r\n\t\tpar[y] = x;\r\n\t\tsz[x] += sz[y];\r\n\t}\r\n\tint size(int\
+    \ x) {\r\n\t\treturn sz[find(x)];\r\n\t}\r\n\tbool is_united(int x, int y) {\r\
+    \n\t\treturn find(x) == find(y);\r\n\t}\r\n\r\n\tprivate:\r\n\tstd::vector<int>\
+    \ par, sz;\r\n};\r\n"
   code: "#include <vector>\r\n#include <utility>\r\n\r\n/**\r\n * @brief Disjoint\
-    \ Set Union\r\n * @docs docs/graph/dsu.md\r\n */\r\n\r\nstruct dsu {\r\n\tstd::vector<int>\
-    \ par, sz;\r\n\tdsu(int n) {\r\n\t\tpar.resize(n);\r\n\t\tsz.resize(n);\r\n\t\t\
-    for (int i = 0; i < n; i++) {\r\n\t\t\tpar[i] = i;\r\n\t\t\tsz[i] = 1;\r\n\t\t\
-    }\r\n\t}\r\n\tint find(int x) {\r\n\t\tif (par[x] == x) {\r\n\t\t\treturn x;\r\
-    \n\t\t}\r\n\t\tpar[x] = find(par[x]);\r\n\t\treturn par[x];\r\n\t}\r\n\tvoid unite(int\
-    \ x, int y) {\r\n\t\tx = find(x);\r\n\t\ty = find(y);\r\n\t\tif (x == y) {\r\n\
-    \t\t\treturn;\r\n\t\t}\r\n\t\tif (sz[x] < sz[y]) {\r\n\t\t\tstd::swap(x, y);\r\
-    \n\t\t}\r\n\t\tpar[y] = x;\r\n\t\tsz[x] += sz[y];\r\n\t}\r\n\tint size(int x)\
-    \ {\r\n\t\treturn sz[find(x)];\r\n\t}\r\n\tbool is_united(int x, int y) {\r\n\t\
-    \treturn find(x) == find(y);\r\n\t}\r\n};\r\n"
+    \ Set Union\r\n * @docs docs/graph/dsu.md\r\n */\r\n\r\nstruct dsu {\r\n\tdsu(int\
+    \ n) {\r\n\t\tpar.resize(n);\r\n\t\tsz.resize(n);\r\n\t\tfor (int i = 0; i < n;\
+    \ i++) {\r\n\t\t\tpar[i] = i;\r\n\t\t\tsz[i] = 1;\r\n\t\t}\r\n\t}\r\n\tint find(int\
+    \ x) {\r\n\t\tif (par[x] == x) {\r\n\t\t\treturn x;\r\n\t\t}\r\n\t\tpar[x] = find(par[x]);\r\
+    \n\t\treturn par[x];\r\n\t}\r\n\tvoid unite(int x, int y) {\r\n\t\tx = find(x);\r\
+    \n\t\ty = find(y);\r\n\t\tif (x == y) {\r\n\t\t\treturn;\r\n\t\t}\r\n\t\tif (sz[x]\
+    \ < sz[y]) {\r\n\t\t\tstd::swap(x, y);\r\n\t\t}\r\n\t\tpar[y] = x;\r\n\t\tsz[x]\
+    \ += sz[y];\r\n\t}\r\n\tint size(int x) {\r\n\t\treturn sz[find(x)];\r\n\t}\r\n\
+    \tbool is_united(int x, int y) {\r\n\t\treturn find(x) == find(y);\r\n\t}\r\n\r\
+    \n\tprivate:\r\n\tstd::vector<int> par, sz;\r\n};\r\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/dsu.cpp
   requiredBy: []
-  timestamp: '2023-12-06 10:41:43+09:00'
+  timestamp: '2023-12-24 07:38:27+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/graph/dsu/dsu.test.cpp

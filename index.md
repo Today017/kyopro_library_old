@@ -23,7 +23,7 @@ data:
     - icon: ':warning:'
       path: data_structure/binary_trie.cpp
       title: Binary Trie
-    - icon: ':heavy_check_mark:'
+    - icon: ':question:'
       path: data_structure/fenwick_tree.cpp
       title: Fenwick Tree
     - icon: ':warning:'
@@ -52,12 +52,15 @@ data:
     - icon: ':heavy_check_mark:'
       path: graph/dsu.cpp
       title: Disjoint Set Union
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: graph/hld.cpp
       title: Heavy-Light Decomposition
     - icon: ':heavy_check_mark:'
       path: graph/lca.cpp
       title: Lowest Common Ancestor
+    - icon: ':warning:'
+      path: graph/max_flow.cpp
+      title: Max Flow
     - icon: ':warning:'
       path: graph/scc.cpp
       title: Strongly Connected Components Decomposition
@@ -143,7 +146,7 @@ data:
       title: test/graph/dsu/dsu.test.cpp
   - name: test/graph/hl_decomposition
     pages:
-    - icon: ':heavy_check_mark:'
+    - icon: ':x:'
       path: test/graph/hl_decomposition/hld.test.cpp
       title: test/graph/hl_decomposition/hld.test.cpp
   - name: test/graph/lowest_common_ancestor
