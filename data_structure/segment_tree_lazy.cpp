@@ -7,17 +7,6 @@
 
 template <typename T, typename U>
 struct segment_tree_lazy {
-	int n;
-	std::vector<T> dat;
-	std::vector<U> lazy;
-	using F = std::function<T(T, T)>;
-	using G = std::function<T(U, T)>;
-	using H = std::function<U(U, U)>;
-	F f;
-	G g;
-	H h;
-	T et;
-	U eu;
 	segment_tree_lazy(int n, F f, G g, H h, T et, U eu) {
 		this->n = 1;
 		while (this->n < n) {
@@ -38,7 +27,6 @@ struct segment_tree_lazy {
 		for (int i = n - 2; i >= 0; i--) {
 			dat[i] = f(dat[i * 2 + 1], dat[i * 2 + 2]);
 		}
-		debug(dat);
 	}
 	void set(int i, T x) {
 		evaluate(i);
@@ -49,6 +37,28 @@ struct segment_tree_lazy {
 			dat[i] = f(dat[i * 2 + 1], dat[i * 2 + 2]);
 		}
 	}
+	void apply(int l, int r, U x) {
+		apply(l, r, 0, x, 0, n);
+	}
+	T query(int l, int r) {
+		return query(l, r, 0, 0, n);
+	}
+	T operator[](int i) {
+		return query(i, i + 1, 0, 0, n);
+	}
+
+	private:
+	int n;
+	std::vector<T> dat;
+	std::vector<U> lazy;
+	using F = std::function<T(T, T)>;
+	using G = std::function<T(U, T)>;
+	using H = std::function<U(U, U)>;
+	F f;
+	G g;
+	H h;
+	T et;
+	U eu;
 	void evaluate(int i) {
 		if (lazy[i] == eu) {
 			return;
@@ -72,9 +82,6 @@ struct segment_tree_lazy {
 			dat[i] = f(dat[i * 2 + 1], dat[i * 2 + 2]);
 		}
 	}
-	void apply(int l, int r, U x) {
-		apply(l, r, 0, x, 0, n);
-	}
 	T query(int left, int right, int i, int l, int r) {
 		evaluate(i);
 		if (r <= left || right <= l) {
@@ -85,11 +92,5 @@ struct segment_tree_lazy {
 			int mid = (l + r) / 2;
 			return f(query(left, right, i * 2 + 1, l, mid), query(left, right, i * 2 + 2, mid, r));
 		}
-	}
-	T query(int l, int r) {
-		return query(l, r, 0, 0, n);
-	}
-	T operator[](int i) {
-		return query(i, i + 1, 0, 0, n);
 	}
 };

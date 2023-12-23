@@ -7,8 +7,6 @@
  */
 
 struct lowest_common_ancestor {
-	std::vector<std::vector<int>> parent;
-	std::vector<int> dst;
 	lowest_common_ancestor(std::vector<std::vector<int>> &G, int root = 0) {
 		int n = G.size();
 		int k = 1;
@@ -25,15 +23,6 @@ struct lowest_common_ancestor {
 				} else {
 					parent[i + 1][j] = parent[i][parent[i][j]];
 				}
-			}
-		}
-	}
-	void dfs(std::vector<std::vector<int>> &G, int now, int pre, int tmp) {
-		parent[0][now] = pre;
-		dst[now] = tmp;
-		for (int nxt : G[now]) {
-			if (nxt != pre) {
-				dfs(G, nxt, now, tmp + 1);
 			}
 		}
 	}
@@ -72,5 +61,18 @@ struct lowest_common_ancestor {
 			}
 		}
 		return u;
+	}
+
+	private:
+	std::vector<std::vector<int>> parent;
+	std::vector<int> dst;
+	void dfs(std::vector<std::vector<int>> &G, int now, int pre, int tmp) {
+		parent[0][now] = pre;
+		dst[now] = tmp;
+		for (int nxt : G[now]) {
+			if (nxt != pre) {
+				dfs(G, nxt, now, tmp + 1);
+			}
+		}
 	}
 };

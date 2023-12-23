@@ -7,7 +7,6 @@
  */
 
 struct dsu {
-	std::vector<int> par, sz;
 	dsu(int n) {
 		par.resize(n);
 		sz.resize(n);
@@ -41,4 +40,7 @@ struct dsu {
 	bool is_united(int x, int y) {
 		return find(x) == find(y);
 	}
+
+	private:
+	std::vector<int> par, sz;
 };

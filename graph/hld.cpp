@@ -6,8 +6,6 @@
  */
 
 struct heavy_light_decomposition {
-	std::vector<std::vector<int>> G;
-	std::vector<int> sz, parent, depth, hld, pos, head;
 	heavy_light_decomposition(int n) {
 		G.resize(n);
 		sz.resize(n);
@@ -29,6 +27,40 @@ struct heavy_light_decomposition {
 		pos.resize(n);
 		head.resize(n);
 	}
+	int lca(int u, int v) {
+		while (head[u] != head[v]) {
+			if (depth[head[u]] > depth[head[v]]) {
+				u = parent[head[u]];
+			} else {
+				v = parent[head[v]];
+			}
+		}
+		return depth[u] < depth[v] ? u : v;
+	}
+	template <typename U>
+	void update(int x, U& Update) {
+		Update(x, pos[x]);
+	}
+	template <typename Q, typename F, typename T>
+	T query(int u, int v, Q& Query, F& f, T e) {
+		T ret = e;
+		while (head[u] != head[v]) {
+			if (depth[head[u]] < depth[head[v]]) {
+				swap(u, v);
+			}
+			ret = f(ret, Query(pos[head[u]], pos[u] + 1));
+			u = parent[head[u]];
+		}
+		if (depth[u] > depth[v]) {
+			swap(u, v);
+		}
+		ret = f(ret, Query(pos[u], pos[v] + 1));
+		return ret;
+	}
+
+	private:
+	std::vector<std::vector<int>> G;
+	std::vector<int> sz, parent, depth, hld, pos, head;
 	std::vector<int> hld_start(int root = 0) {
 		dfs1(root);
 		dfs2(root);
@@ -84,35 +116,5 @@ struct heavy_light_decomposition {
 			depth[nxt] = depth[now] + 1;
 			dfs2(nxt, now);
 		}
-	}
-	int lca(int u, int v) {
-		while (head[u] != head[v]) {
-			if (depth[head[u]] > depth[head[v]]) {
-				u = parent[head[u]];
-			} else {
-				v = parent[head[v]];
-			}
-		}
-		return depth[u] < depth[v] ? u : v;
-	}
-	template <typename U>
-	void update(int x, U& Update) {
-		Update(x, pos[x]);
-	}
-	template <typename Q, typename F, typename T>
-	T query(int u, int v, Q& Query, F& f, T e) {
-		T ret = e;
-		while (head[u] != head[v]) {
-			if (depth[head[u]] < depth[head[v]]) {
-				swap(u, v);
-			}
-			ret = f(ret, Query(pos[head[u]], pos[u] + 1));
-			u = parent[head[u]];
-		}
-		if (depth[u] > depth[v]) {
-			swap(u, v);
-		}
-		ret = f(ret, Query(pos[u], pos[v] + 1));
-		return ret;
 	}
 };
