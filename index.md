@@ -103,6 +103,9 @@ data:
   - name: mod
     pages:
     - icon: ':warning:'
+      path: mod/dynamic_modint.cpp
+      title: Dynamic Modint
+    - icon: ':warning:'
       path: mod/mod_combination.cpp
       title: Combination
     - icon: ':warning:'
