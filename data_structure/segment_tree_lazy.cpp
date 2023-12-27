@@ -7,6 +7,7 @@
 
 template <typename T, typename U>
 struct segment_tree_lazy {
+	template<typename F, typename G, typename H>
 	segment_tree_lazy(int n, F f, G g, H h, T et, U eu) {
 		this->n = 1;
 		while (this->n < n) {
@@ -20,7 +21,7 @@ struct segment_tree_lazy {
 		dat.resize(this->n * 2 - 1, this->et);
 		lazy.resize(this->n * 2 - 1, this->eu);
 	}
-	void build(const vector<T> &A) {
+	void build(const std::vector<T> &A) {
 		for (int i = 0; i < (int)A.size(); i++) {
 			dat[i + n - 1] = A[i];
 		}
