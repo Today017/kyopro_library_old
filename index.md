@@ -62,6 +62,9 @@ data:
       path: graph/max_flow.cpp
       title: Max Flow
     - icon: ':warning:'
+      path: graph/min_cost_flow.cpp
+      title: Min Cost Flow
+    - icon: ':warning:'
       path: graph/scc.cpp
       title: Strongly Connected Components Decomposition
     - icon: ':warning:'
