@@ -12,7 +12,7 @@ std::vector<int> z_algorithm(std::string s) {
 	std::vector<int> ret(n, 0);
 	for (int i = 1; i < n; i++) {
 		int l = i - c;
-		if (i + ret[i] < c + ret[c]) {
+		if (i + ret[l] < c + ret[c]) {
 			ret[i] = ret[l];
 		} else {
 			int j = std::max(c + ret[c] - i, 0);
