@@ -3,7 +3,6 @@
 
 /**
  * @brief Inversion Number
- * @docs docs/algorithm/inversion_number.md
  */
 
 long long inversion_number(const std::vector<int> &A) {
