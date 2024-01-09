@@ -54,7 +54,9 @@ std::tuple<std::vector<std::vector<int>>, std::vector<std::vector<int>>, std::ve
 	std::vector<std::vector<int>> ret2(n_n);
 	for (int i = 0; i < n; i++) {
 		for (int j : G[i]) {
-			ret2[component[i]].push_back(component[j]);
+			if (component[i] != component[j]) {
+				ret2[component[i]].push_back(component[j]);
+			}
 		}
 	}
 	for (int i = 0; i < n_n; i++) {
