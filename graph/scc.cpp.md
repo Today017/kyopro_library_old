@@ -28,10 +28,10 @@ data:
     \ + 1;\n\tstd::vector<std::vector<int>> ret(n_n);\n\tfor (int i = 0; i < n; i++)\
     \ {\n\t\tret[component[i]].push_back(i);\n\t}\n\tstd::vector<std::vector<int>>\
     \ ret2(n_n);\n\tfor (int i = 0; i < n; i++) {\n\t\tfor (int j : G[i]) {\n\t\t\t\
-    ret2[component[i]].push_back(component[j]);\n\t\t}\n\t}\n\tfor (int i = 0; i <\
-    \ n_n; i++) {\n\t\tsort(ret2[i].begin(), ret2[i].end());\n\t\tret2[i].erase(std::unique(ret2[i].begin(),\
-    \ ret2[i].end()), ret2[i].end());\n\t}\n\treturn std::make_tuple(ret, ret2, component);\n\
-    }\n"
+    if (component[i] != component[j]) {\n\t\t\t\tret2[component[i]].push_back(component[j]);\n\
+    \t\t\t}\n\t\t}\n\t}\n\tfor (int i = 0; i < n_n; i++) {\n\t\tsort(ret2[i].begin(),\
+    \ ret2[i].end());\n\t\tret2[i].erase(std::unique(ret2[i].begin(), ret2[i].end()),\
+    \ ret2[i].end());\n\t}\n\treturn std::make_tuple(ret, ret2, component);\n}\n"
   code: "#include <tuple>\n#include <vector>\n#include <algorithm>\n\n/**\n * @brief\
     \ Strongly Connected Components Decomposition\n */\n\nstd::tuple<std::vector<std::vector<int>>,\
     \ std::vector<std::vector<int>>, std::vector<int>> strongly_connected_components_decomposition(const\
@@ -50,15 +50,15 @@ data:
     \ component.end()) + 1;\n\tstd::vector<std::vector<int>> ret(n_n);\n\tfor (int\
     \ i = 0; i < n; i++) {\n\t\tret[component[i]].push_back(i);\n\t}\n\tstd::vector<std::vector<int>>\
     \ ret2(n_n);\n\tfor (int i = 0; i < n; i++) {\n\t\tfor (int j : G[i]) {\n\t\t\t\
-    ret2[component[i]].push_back(component[j]);\n\t\t}\n\t}\n\tfor (int i = 0; i <\
-    \ n_n; i++) {\n\t\tsort(ret2[i].begin(), ret2[i].end());\n\t\tret2[i].erase(std::unique(ret2[i].begin(),\
-    \ ret2[i].end()), ret2[i].end());\n\t}\n\treturn std::make_tuple(ret, ret2, component);\n\
-    }\n"
+    if (component[i] != component[j]) {\n\t\t\t\tret2[component[i]].push_back(component[j]);\n\
+    \t\t\t}\n\t\t}\n\t}\n\tfor (int i = 0; i < n_n; i++) {\n\t\tsort(ret2[i].begin(),\
+    \ ret2[i].end());\n\t\tret2[i].erase(std::unique(ret2[i].begin(), ret2[i].end()),\
+    \ ret2[i].end());\n\t}\n\treturn std::make_tuple(ret, ret2, component);\n}\n"
   dependsOn: []
   isVerificationFile: false
   path: graph/scc.cpp
   requiredBy: []
-  timestamp: '2024-01-09 15:27:32+09:00'
+  timestamp: '2024-01-09 15:41:19+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: graph/scc.cpp
