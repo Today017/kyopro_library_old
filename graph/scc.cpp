@@ -1,3 +1,4 @@
+#include <utility>
 #include <vector>
 #include <algorithm>
 
@@ -5,7 +6,7 @@
  * @brief Strongly Connected Components Decomposition
  */
 
-std::vector<std::vector<int>> strongly_connected_components_decomposition(const std::vector<std::vector<int>> &G) {
+std::pair<std::vector<std::vector<int>>, std::vector<std::vector<int>>> strongly_connected_components_decomposition(const std::vector<std::vector<int>> &G) {
 	int n = G.size();
 	std::vector<std::vector<int>> G2(n);
 	for (int i = 0; i < n; i++) {
@@ -50,5 +51,15 @@ std::vector<std::vector<int>> strongly_connected_components_decomposition(const 
 	for (int i = 0; i < n; i++) {
 		ret[component[i]].push_back(i);
 	}
-	return ret;
+	std::vector<std::vector<int>> ret2(n_n);
+	for (int i = 0; i < n; i++) {
+		for (int j : G[i]) {
+			ret2[component[i]].push_back(component[j]);
+		}
+	}
+	for (int i = 0; i < n_n; i++) {
+		sort(ret2[i].begin(), ret2[i].end());
+		ret2[i].erase(std::unique(ret2[i].begin(), ret2[i].end()), ret2[i].end());
+	}
+	return std::make_pair(ret, ret2);
 }
