@@ -1,4 +1,4 @@
-#include <utility>
+#include <tuple>
 #include <vector>
 #include <algorithm>
 
@@ -6,7 +6,7 @@
  * @brief Strongly Connected Components Decomposition
  */
 
-std::pair<std::vector<std::vector<int>>, std::vector<std::vector<int>>> strongly_connected_components_decomposition(const std::vector<std::vector<int>> &G) {
+std::tuple<std::vector<std::vector<int>>, std::vector<std::vector<int>>, std::vector<int>> strongly_connected_components_decomposition(const std::vector<std::vector<int>> &G) {
 	int n = G.size();
 	std::vector<std::vector<int>> G2(n);
 	for (int i = 0; i < n; i++) {
@@ -61,5 +61,5 @@ std::pair<std::vector<std::vector<int>>, std::vector<std::vector<int>>> strongly
 		sort(ret2[i].begin(), ret2[i].end());
 		ret2[i].erase(std::unique(ret2[i].begin(), ret2[i].end()), ret2[i].end());
 	}
-	return std::make_pair(ret, ret2);
+	return std::make_tuple(ret, ret2, component);
 }
