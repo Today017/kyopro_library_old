@@ -7,16 +7,16 @@
  */
 
 std::vector<long long> divisors(long long n) {
-	std::vector<long long> ret;
-	for (long long i = 1; i * i <= n; i++) {
-		if (n % i) {
-			continue;
-		}
-		ret.push_back(i);
-		if (n / i != i) {
-			ret.push_back(n / i);
-		}
-	}
-	std::sort(ret.begin(), ret.end());
-	return ret;
+    std::vector<long long> ret;
+    for (long long i = 1; i * i <= n; i++) {
+        if (n % i != 0) {
+            continue;
+        }
+        ret.push_back(i);
+        if (n / i != i) {
+            ret.push_back(n / i);
+        }
+    }
+    std::sort(ret.begin(), ret.end());
+    return ret;
 }
