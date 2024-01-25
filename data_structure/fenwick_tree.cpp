@@ -1,4 +1,5 @@
 #include <vector>
+#include <iostream>
 
 /**
  * @brief Fenwick Tree
@@ -23,6 +24,18 @@ struct fenwick_tree {
     }
     T sum(int l, int r) {
         return sum(r) - sum(l);
+    }
+    friend std::ostream &operator<<(ostream &os, fenwick_tree A) {
+        int n = A.n;
+        os << "[ ";
+        for (int i = 0; i < n; i++) {
+            os << A[i];
+            if (i != n - 1) {
+                os << ", ";
+            }
+        }
+        os << " ]";
+        return os;
     }
 
 private:

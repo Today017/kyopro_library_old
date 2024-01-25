@@ -47,6 +47,18 @@ struct segment_tree_lazy {
     T operator[](int i) {
         return query(i, i + 1, 0, 0, n);
     }
+    friend std::ostream &operator<<(ostream &os, segment_tree_lazy A) {
+        int n = A.n;
+        os << "[ ";
+        for (int i = 0; i < n; i++) {
+            os << A[i];
+            if (i != n - 1) {
+                os << ", ";
+            }
+        }
+        os << " ]";
+        return os;
+    }
 
 private:
     int n;

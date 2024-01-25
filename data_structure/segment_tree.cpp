@@ -26,9 +26,6 @@ struct segment_tree {
             dat[i] = f(dat[i * 2 + 1], dat[i * 2 + 2]);
         }
     }
-    T operator[](int i) {
-        return dat[n - 1 + i];
-    }
     void set(int i, T x) {
         i += n - 1;
         dat[i] = x;
@@ -39,6 +36,21 @@ struct segment_tree {
     }
     T query(int l, int r) {
         return query(l, r, 0, 0, n);
+    }
+    T operator[](int i) {
+        return dat[n - 1 + i];
+    }
+    friend std::ostream &operator<<(ostream &os, segment_tree A) {
+        int n = A.n;
+        os << "[ ";
+        for (int i = 0; i < n; i++) {
+            os << A[i];
+            if (i != n - 1) {
+                os << ", ";
+            }
+        }
+        os << " ]";
+        return os;
     }
 
 private:
