@@ -10,32 +10,34 @@ data:
     document_title: Fraction
     links: []
   bundledCode: "#line 1 \"math/fraction.cpp\"\n#include <numeric>\n\n/**\n * @brief\
-    \ Fraction\n */\n\nstruct fraction {\n\t__int128_t p, q;\n\t// p/q\n\tfraction(__int128_t\
-    \ p = 0, __int128_t q = 1) {\n\t\tthis->p = p;\n\t\tthis->q = q;\n\t}\n\tvoid\
-    \ norm() {\n\t\t__int128_t g = std::gcd(p, q);\n\t\tp /= g;\n\t\tq /= g;\n\t\t\
-    if (q < 0) {\n\t\t\tp = -p;\n\t\t\tq = -q;\n\t\t}\n\t}\n\tbool operator<(const\
-    \ fraction &other) const {\n\t\treturn p * other.q < other.p * q;\n\t}\n\tbool\
-    \ operator<=(const fraction &other) const {\n\t\treturn p * other.q <= other.p\
-    \ * q;\n\t}\n\tbool operator>(const fraction &other) const {\n\t\treturn p * other.q\
-    \ > other.p * q;\n\t}\n\tbool operator>=(const fraction &other) const {\n\t\t\
-    return p * other.q >= other.p * q;\n\t}\n\tbool operator==(const fraction &other)\
-    \ const {\n\t\treturn p * other.q == other.p * q;\n\t}\n};\n"
+    \ Fraction\n */\n\nstruct fraction {\n    __int128_t p, q;\n    fraction(__int128_t\
+    \ p = 0, __int128_t q = 1) {\n        this->p = p;\n        this->q = q;\n   \
+    \ }\n    void norm() {\n        __int128_t g = std::gcd(p, q);\n        p /= g;\n\
+    \        q /= g;\n        if (q < 0) {\n            p = -p;\n            q = -q;\n\
+    \        }\n    }\n    bool operator<(const fraction &other) const {\n       \
+    \ return p * other.q < other.p * q;\n    }\n    bool operator<=(const fraction\
+    \ &other) const {\n        return p * other.q <= other.p * q;\n    }\n    bool\
+    \ operator>(const fraction &other) const {\n        return p * other.q > other.p\
+    \ * q;\n    }\n    bool operator>=(const fraction &other) const {\n        return\
+    \ p * other.q >= other.p * q;\n    }\n    bool operator==(const fraction &other)\
+    \ const {\n        return p * other.q == other.p * q;\n    }\n};\n"
   code: "#include <numeric>\n\n/**\n * @brief Fraction\n */\n\nstruct fraction {\n\
-    \t__int128_t p, q;\n\t// p/q\n\tfraction(__int128_t p = 0, __int128_t q = 1) {\n\
-    \t\tthis->p = p;\n\t\tthis->q = q;\n\t}\n\tvoid norm() {\n\t\t__int128_t g = std::gcd(p,\
-    \ q);\n\t\tp /= g;\n\t\tq /= g;\n\t\tif (q < 0) {\n\t\t\tp = -p;\n\t\t\tq = -q;\n\
-    \t\t}\n\t}\n\tbool operator<(const fraction &other) const {\n\t\treturn p * other.q\
-    \ < other.p * q;\n\t}\n\tbool operator<=(const fraction &other) const {\n\t\t\
-    return p * other.q <= other.p * q;\n\t}\n\tbool operator>(const fraction &other)\
-    \ const {\n\t\treturn p * other.q > other.p * q;\n\t}\n\tbool operator>=(const\
-    \ fraction &other) const {\n\t\treturn p * other.q >= other.p * q;\n\t}\n\tbool\
-    \ operator==(const fraction &other) const {\n\t\treturn p * other.q == other.p\
-    \ * q;\n\t}\n};\n"
+    \    __int128_t p, q;\n    fraction(__int128_t p = 0, __int128_t q = 1) {\n  \
+    \      this->p = p;\n        this->q = q;\n    }\n    void norm() {\n        __int128_t\
+    \ g = std::gcd(p, q);\n        p /= g;\n        q /= g;\n        if (q < 0) {\n\
+    \            p = -p;\n            q = -q;\n        }\n    }\n    bool operator<(const\
+    \ fraction &other) const {\n        return p * other.q < other.p * q;\n    }\n\
+    \    bool operator<=(const fraction &other) const {\n        return p * other.q\
+    \ <= other.p * q;\n    }\n    bool operator>(const fraction &other) const {\n\
+    \        return p * other.q > other.p * q;\n    }\n    bool operator>=(const fraction\
+    \ &other) const {\n        return p * other.q >= other.p * q;\n    }\n    bool\
+    \ operator==(const fraction &other) const {\n        return p * other.q == other.p\
+    \ * q;\n    }\n};\n"
   dependsOn: []
   isVerificationFile: false
   path: math/fraction.cpp
   requiredBy: []
-  timestamp: '2023-12-06 10:41:43+09:00'
+  timestamp: '2024-01-25 11:55:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/fraction.cpp

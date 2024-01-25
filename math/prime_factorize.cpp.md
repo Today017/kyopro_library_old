@@ -11,23 +11,24 @@ data:
     links: []
   bundledCode: "#line 1 \"math/prime_factorize.cpp\"\n#include <vector>\n#include\
     \ <utility>\n\n/**\n * @brief Prime Factorize\n * @attention O(n sqrt(n))\n */\n\
-    \nstd::vector<std::pair<long long, int>> prime_factorize(long long n) {\n\tstd::vector<std::pair<long\
-    \ long, int>> ret;\n\tfor (long long i = 2; i * i <= n; i++) {\n\t\tif (n % i\
-    \ != 0) {\n\t\t\tcontinue;\n\t\t}\n\t\tint ex = 0;\n\t\twhile (n % i == 0) {\n\
-    \t\t\tex++;\n\t\t\tn /= i;\n\t\t}\n\t\tret.push_back({i, ex});\n\t}\n\tif (n !=\
-    \ 1) {\n\t\tret.push_back({n, 1});\n\t}\n\treturn ret;\n}\n"
+    \nstd::vector<std::pair<long long, int>> prime_factorize(long long n) {\n    std::vector<std::pair<long\
+    \ long, int>> ret;\n    for (long long i = 2; i * i <= n; i++) {\n        if (n\
+    \ % i != 0) {\n            continue;\n        }\n        int ex = 0;\n       \
+    \ while (n % i == 0) {\n            ex++;\n            n /= i;\n        }\n  \
+    \      ret.push_back({i, ex});\n    }\n    if (n != 1) {\n        ret.push_back({n,\
+    \ 1});\n    }\n    return ret;\n}\n"
   code: "#include <vector>\n#include <utility>\n\n/**\n * @brief Prime Factorize\n\
     \ * @attention O(n sqrt(n))\n */\n\nstd::vector<std::pair<long long, int>> prime_factorize(long\
-    \ long n) {\n\tstd::vector<std::pair<long long, int>> ret;\n\tfor (long long i\
-    \ = 2; i * i <= n; i++) {\n\t\tif (n % i != 0) {\n\t\t\tcontinue;\n\t\t}\n\t\t\
-    int ex = 0;\n\t\twhile (n % i == 0) {\n\t\t\tex++;\n\t\t\tn /= i;\n\t\t}\n\t\t\
-    ret.push_back({i, ex});\n\t}\n\tif (n != 1) {\n\t\tret.push_back({n, 1});\n\t\
-    }\n\treturn ret;\n}"
+    \ long n) {\n    std::vector<std::pair<long long, int>> ret;\n    for (long long\
+    \ i = 2; i * i <= n; i++) {\n        if (n % i != 0) {\n            continue;\n\
+    \        }\n        int ex = 0;\n        while (n % i == 0) {\n            ex++;\n\
+    \            n /= i;\n        }\n        ret.push_back({i, ex});\n    }\n    if\
+    \ (n != 1) {\n        ret.push_back({n, 1});\n    }\n    return ret;\n}"
   dependsOn: []
   isVerificationFile: false
   path: math/prime_factorize.cpp
   requiredBy: []
-  timestamp: '2023-12-06 10:41:43+09:00'
+  timestamp: '2024-01-25 11:55:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/prime_factorize.cpp

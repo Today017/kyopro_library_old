@@ -11,21 +11,23 @@ data:
     links: []
   bundledCode: "#line 1 \"math/divisors.cpp\"\n#include <vector>\n#include <algorithm>\n\
     \n/**\n * @brief \u7D04\u6570\u5217\u6319\n * @attention O(sqrt(n))\n */\n\nstd::vector<long\
-    \ long> divisors(long long n) {\n\tstd::vector<long long> ret;\n\tfor (long long\
-    \ i = 1; i * i <= n; i++) {\n\t\tif (n % i) {\n\t\t\tcontinue;\n\t\t}\n\t\tret.push_back(i);\n\
-    \t\tif (n / i != i) {\n\t\t\tret.push_back(n / i);\n\t\t}\n\t}\n\tstd::sort(ret.begin(),\
-    \ ret.end());\n\treturn ret;\n}\n"
+    \ long> divisors(long long n) {\n    std::vector<long long> ret;\n    for (long\
+    \ long i = 1; i * i <= n; i++) {\n        if (n % i != 0) {\n            continue;\n\
+    \        }\n        ret.push_back(i);\n        if (n / i != i) {\n           \
+    \ ret.push_back(n / i);\n        }\n    }\n    std::sort(ret.begin(), ret.end());\n\
+    \    return ret;\n}\n"
   code: "#include <vector>\n#include <algorithm>\n\n/**\n * @brief \u7D04\u6570\u5217\
     \u6319\n * @attention O(sqrt(n))\n */\n\nstd::vector<long long> divisors(long\
-    \ long n) {\n\tstd::vector<long long> ret;\n\tfor (long long i = 1; i * i <= n;\
-    \ i++) {\n\t\tif (n % i) {\n\t\t\tcontinue;\n\t\t}\n\t\tret.push_back(i);\n\t\t\
-    if (n / i != i) {\n\t\t\tret.push_back(n / i);\n\t\t}\n\t}\n\tstd::sort(ret.begin(),\
-    \ ret.end());\n\treturn ret;\n}"
+    \ long n) {\n    std::vector<long long> ret;\n    for (long long i = 1; i * i\
+    \ <= n; i++) {\n        if (n % i != 0) {\n            continue;\n        }\n\
+    \        ret.push_back(i);\n        if (n / i != i) {\n            ret.push_back(n\
+    \ / i);\n        }\n    }\n    std::sort(ret.begin(), ret.end());\n    return\
+    \ ret;\n}"
   dependsOn: []
   isVerificationFile: false
   path: math/divisors.cpp
   requiredBy: []
-  timestamp: '2023-12-06 10:41:43+09:00'
+  timestamp: '2024-01-25 11:55:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: math/divisors.cpp

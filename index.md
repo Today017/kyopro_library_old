@@ -15,9 +15,6 @@ data:
     - icon: ':warning:'
       path: algorithm/longest_increasing_subsequence_length.cpp
       title: algorithm/longest_increasing_subsequence_length.cpp
-    - icon: ':warning:'
-      path: algorithm/mo.cpp
-      title: algorithm/mo.cpp
   - name: data_structure
     pages:
     - icon: ':warning:'
@@ -87,7 +84,7 @@ data:
         \u5F0F"
     - icon: ':warning:'
       path: math/fast_combination.cpp
-      title: Pre-Calculated Combination
+      title: Combination
     - icon: ':warning:'
       path: math/fraction.cpp
       title: Fraction
@@ -103,6 +100,9 @@ data:
     - icon: ':warning:'
       path: math/prime_factorize.cpp
       title: Prime Factorize
+    - icon: ':warning:'
+      path: math/quotient_ranges.cpp
+      title: Quotient Ranges
   - name: mod
     pages:
     - icon: ':warning:'
@@ -110,7 +110,7 @@ data:
       title: Dynamic Modint
     - icon: ':warning:'
       path: mod/mod_combination.cpp
-      title: Combination
+      title: Modint
     - icon: ':warning:'
       path: mod/modint.cpp
       title: Modint

@@ -1,9 +1,6 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':heavy_check_mark:'
-    path: data_structure/fenwick_tree.cpp
-    title: Fenwick Tree
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -12,32 +9,29 @@ data:
   attributes:
     document_title: Inversion Number
     links: []
-  bundledCode: "#line 1 \"algorithm/inversion_number.cpp\"\n#include <vector>\r\n\
-    #line 2 \"data_structure/fenwick_tree.cpp\"\n\r\n/**\r\n * @brief Fenwick Tree\r\
-    \n * @docs docs/data_structure/fenwick_tree.md\r\n */\r\n\r\ntemplate <typename\
-    \ T>\r\nstruct fenwick_tree {\r\n\tfenwick_tree(int n) {\r\n\t\tthis->n = n;\r\
-    \n\t\tdat.resize(n);\r\n\t}\r\n\tvoid add(int i, T x) {\r\n\t\ti++;\r\n\t\twhile\
-    \ (i <= n) {\r\n\t\t\tdat[i - 1] += x;\r\n\t\t\ti += i & -i;\r\n\t\t}\r\n\t}\r\
-    \n\tT operator[](int i) {\r\n\t\treturn sum(i, i + 1);\r\n\t}\r\n\tT sum(int l,\
-    \ int r) {\r\n\t\treturn sum(r) - sum(l);\r\n\t}\r\n\r\n\tprivate:\r\n\tint n;\r\
-    \n\tstd::vector<T> dat;\r\n\tT sum(int r) {\r\n\t\tT ret = 0;\r\n\t\twhile (r\
-    \ > 0) {\r\n\t\t\tret += dat[r - 1];\r\n\t\t\tr -= r & -r;\r\n\t\t}\r\n\t\treturn\
-    \ ret;\r\n\t}\r\n};\n#line 3 \"algorithm/inversion_number.cpp\"\n\r\n/**\r\n *\
-    \ @brief Inversion Number\r\n */\r\n\r\nlong long inversion_number(const std::vector<int>\
-    \ &A) {\r\n\tint n = A.size();\r\n\tfenwick_tree<int> ft(n);\r\n\tlong long ret\
-    \ = 0;\r\n\tfor (int i = 0; i < n; i++) {\r\n\t\tret += i - ft.sum(0, A[i]);\r\
-    \n\t\tft.add(A[i], 1);\r\n\t}\r\n\treturn ret;\r\n}\r\n"
-  code: "#include <vector>\r\n#include \"data_structure/fenwick_tree.cpp\"\r\n\r\n\
-    /**\r\n * @brief Inversion Number\r\n */\r\n\r\nlong long inversion_number(const\
-    \ std::vector<int> &A) {\r\n\tint n = A.size();\r\n\tfenwick_tree<int> ft(n);\r\
-    \n\tlong long ret = 0;\r\n\tfor (int i = 0; i < n; i++) {\r\n\t\tret += i - ft.sum(0,\
-    \ A[i]);\r\n\t\tft.add(A[i], 1);\r\n\t}\r\n\treturn ret;\r\n}\r\n"
-  dependsOn:
-  - data_structure/fenwick_tree.cpp
+  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
+    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
+    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
+    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
+    \  File \"/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
+    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
+    \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
+    \ File \"/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
+    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
+    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: kyopro_library/data_structure/fenwick_tree.cpp:\
+    \ line -1: no such header\n"
+  code: "#include <vector>\r\n#include \"kyopro_library/data_structure/fenwick_tree.cpp\"\
+    \r\n\r\n/**\r\n * @brief Inversion Number\r\n */\r\n\r\nlong long inversion_number(const\
+    \ std::vector<int> &A) {\r\n    int n = A.size();\r\n    fenwick_tree<int> ft(n);\r\
+    \n    long long ret = 0;\r\n    for (int i = 0; i < n; i++) {\r\n        ret +=\
+    \ i - ft.sum(0, A[i]);\r\n        ft.add(A[i], 1);\r\n    }\r\n    return ret;\r\
+    \n}\r\n"
+  dependsOn: []
   isVerificationFile: false
   path: algorithm/inversion_number.cpp
   requiredBy: []
-  timestamp: '2024-01-07 08:41:42+09:00'
+  timestamp: '1970-01-01 00:00:00+00:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: algorithm/inversion_number.cpp

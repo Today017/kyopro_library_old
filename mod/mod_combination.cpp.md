@@ -1,70 +1,98 @@
 ---
 data:
-  _extendedDependsOn:
-  - icon: ':warning:'
-    path: mod/modint.cpp
-    title: Modint
+  _extendedDependsOn: []
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
   _pathExtension: cpp
   _verificationStatusIcon: ':warning:'
   attributes:
-    document_title: Combination
+    document_title: Modint
     links: []
-  bundledCode: "#line 1 \"mod/modint.cpp\"\n#include <iostream>\r\n\r\n/**\r\n * @brief\
-    \ Modint\r\n */\r\n\r\ntemplate <long long MOD>\r\nstruct modint {\r\n\tlong long\
-    \ value;\r\n\tmodint(long long x = 0) {\r\n\t\tif (x >= 0) {\r\n\t\t\tvalue =\
-    \ x % MOD;\r\n\t\t} else {\r\n\t\t\tvalue = MOD - (-x) % MOD;\r\n\t\t}\r\n\t}\r\
-    \n\tmodint operator-() const {\r\n\t\treturn modint(-value);\r\n\t}\r\n\tmodint\
-    \ operator+() const {\r\n\t\treturn modint(*this);\r\n\t}\r\n\tmodint &operator+=(const\
-    \ modint &other) {\r\n\t\tvalue += other.value;\r\n\t\tif (value >= MOD) {\r\n\
-    \t\t\tvalue -= MOD;\r\n\t\t}\r\n\t\treturn *this;\r\n\t}\r\n\tmodint &operator-=(const\
-    \ modint &other) {\r\n\t\tvalue += MOD - other.value;\r\n\t\tif (value >= MOD)\
-    \ {\r\n\t\t\tvalue -= MOD;\r\n\t\t}\r\n\t\treturn *this;\r\n\t}\r\n\tmodint &operator*=(const\
-    \ modint other) {\r\n\t\tvalue = value * other.value % MOD;\r\n\t\treturn *this;\r\
-    \n\t}\r\n\tmodint &operator/=(modint other) {\r\n\t\t(*this) *= other.inv();\r\
-    \n\t\treturn *this;\r\n\t}\r\n\tmodint operator+(const modint &other) const {\r\
-    \n\t\treturn modint(*this) += other;\r\n\t}\r\n\tmodint operator-(const modint\
-    \ &other) const {\r\n\t\treturn modint(*this) -= other;\r\n\t}\r\n\tmodint operator*(const\
-    \ modint &other) const {\r\n\t\treturn modint(*this) *= other;\r\n\t}\r\n\tmodint\
-    \ operator/(const modint &other) const {\r\n\t\treturn modint(*this) /= other;\r\
-    \n\t}\r\n\tmodint pow(long long x) const {\r\n\t\tmodint ret(1), mul(value);\r\
-    \n\t\twhile (x > 0) {\r\n\t\t\tif (x % 2 == 1) {\r\n\t\t\t\tret *= mul;\r\n\t\t\
-    \t}\r\n\t\t\tmul *= mul;\r\n\t\t\tx /= 2;\r\n\t\t}\r\n\t\treturn ret;\r\n\t}\r\
-    \n\tmodint inv() const {\r\n\t\treturn pow(MOD - 2);\r\n\t}\r\n\tbool operator==(const\
-    \ modint &other) const {\r\n\t\treturn value == other.value;\r\n\t}\r\n\tbool\
-    \ operator!=(const modint &other) const {\r\n\t\treturn value != other.value;\r\
-    \n\t}\r\n\tfriend std::ostream &operator<<(std::ostream &os, const modint &x)\
-    \ {\r\n\t\treturn os << x.value;\r\n\t}\r\n\tfriend std::istream &operator>>(std::istream\
-    \ &is, modint &x) {\r\n\t\tlong long v;\r\n\t\tis >> v;\r\n\t\tx = modint<MOD>(v);\r\
-    \n\t\treturn is;\r\n\t}\r\n};\r\nusing mod998 = modint<998244353>;\r\nusing mod107\
-    \ = modint<1000000007>;\r\n#line 2 \"mod/mod_combination.cpp\"\n#include <vector>\n\
-    \n/**\n * @brief Combination\n */\n\ntemplate <typename T>\nstruct combination\
-    \ {\n\tstd::vector<T> fact, factinv;\n\tcombination(int n) {\n\t\tfact.resize(n\
-    \ + 1);\n\t\tfactinv.resize(n + 1);\n\t\tfact[0] = 1;\n\t\tfor (int i = 1; i <=\
-    \ n; i++) {\n\t\t\tfact[i] = fact[i - 1] * i;\n\t\t}\n\t\tfor (int i = 0; i <=\
-    \ n; i++) {\n\t\t\tfactinv[i] = fact[i].inv();\n\t\t}\n\t}\n\tT nCr(long long\
-    \ n, long long r) {\n\t\tif (n < 0 || r < 0 || n - r < 0) {\n\t\t\treturn 0;\n\
-    \t\t}\n\t\treturn fact[n] * factinv[r] * factinv[n - r];\n\t}\n\tT nPr(long long\
-    \ n, long long r) {\n\t\tif (n < 0 || r < 0 || n - r < 0) {\n\t\t\treturn 0;\n\
-    \t\t}\n\t\treturn fact[n] * factinv[n - r];\n\t}\n};\n"
-  code: "#include \"mod/modint.cpp\"\n#include <vector>\n\n/**\n * @brief Combination\n\
-    \ */\n\ntemplate <typename T>\nstruct combination {\n\tstd::vector<T> fact, factinv;\n\
-    \tcombination(int n) {\n\t\tfact.resize(n + 1);\n\t\tfactinv.resize(n + 1);\n\t\
-    \tfact[0] = 1;\n\t\tfor (int i = 1; i <= n; i++) {\n\t\t\tfact[i] = fact[i - 1]\
-    \ * i;\n\t\t}\n\t\tfor (int i = 0; i <= n; i++) {\n\t\t\tfactinv[i] = fact[i].inv();\n\
-    \t\t}\n\t}\n\tT nCr(long long n, long long r) {\n\t\tif (n < 0 || r < 0 || n -\
-    \ r < 0) {\n\t\t\treturn 0;\n\t\t}\n\t\treturn fact[n] * factinv[r] * factinv[n\
-    \ - r];\n\t}\n\tT nPr(long long n, long long r) {\n\t\tif (n < 0 || r < 0 || n\
-    \ - r < 0) {\n\t\t\treturn 0;\n\t\t}\n\t\treturn fact[n] * factinv[n - r];\n\t\
-    }\n};"
-  dependsOn:
-  - mod/modint.cpp
+  bundledCode: "#line 1 \"mod/mod_combination.cpp\"\n#include <iostream>\n\n/**\n\
+    \ * @brief Modint\n */\n\ntemplate <long long MOD>\nstruct modint {\n    long\
+    \ long value;\n    modint(long long x = 0) {\n        if (x >= 0) {\n        \
+    \    value = x % MOD;\n        } else {\n            value = MOD - (-x) % MOD;\n\
+    \        }\n    }\n    modint operator-() const {\n        return modint(-value);\n\
+    \    }\n    modint operator+() const {\n        return modint(*this);\n    }\n\
+    \    modint &operator+=(const modint &other) {\n        value += other.value;\n\
+    \        if (value >= MOD) {\n            value -= MOD;\n        }\n        return\
+    \ *this;\n    }\n    modint &operator-=(const modint &other) {\n        value\
+    \ += MOD - other.value;\n        if (value >= MOD) {\n            value -= MOD;\n\
+    \        }\n        return *this;\n    }\n    modint &operator*=(const modint\
+    \ other) {\n        value = value * other.value % MOD;\n        return *this;\n\
+    \    }\n    modint &operator/=(modint other) {\n        (*this) *= other.inv();\n\
+    \        return *this;\n    }\n    modint operator+(const modint &other) const\
+    \ {\n        return modint(*this) += other;\n    }\n    modint operator-(const\
+    \ modint &other) const {\n        return modint(*this) -= other;\n    }\n    modint\
+    \ operator*(const modint &other) const {\n        return modint(*this) *= other;\n\
+    \    }\n    modint operator/(const modint &other) const {\n        return modint(*this)\
+    \ /= other;\n    }\n    modint pow(long long x) const {\n        modint ret(1),\
+    \ mul(value);\n        while (x > 0) {\n            if (x % 2 == 1) {\n      \
+    \          ret *= mul;\n            }\n            mul *= mul;\n            x\
+    \ /= 2;\n        }\n        return ret;\n    }\n    modint inv() const {\n   \
+    \     return pow(MOD - 2);\n    }\n    bool operator==(const modint &other) const\
+    \ {\n        return value == other.value;\n    }\n    bool operator!=(const modint\
+    \ &other) const {\n        return value != other.value;\n    }\n    friend std::ostream\
+    \ &operator<<(std::ostream &os, const modint &x) {\n        return os << x.value;\n\
+    \    }\n    friend std::istream &operator>>(std::istream &is, modint &x) {\n \
+    \       long long v;\n        is >> v;\n        x = modint<MOD>(v);\n        return\
+    \ is;\n    }\n};\nusing mod998 = modint<998244353>;\nusing mod107 = modint<1000000007>;\n\
+    \n#include <vector>\n\n/**\n * @brief Combination\n */\n\ntemplate <typename T>\n\
+    struct combination {\n    std::vector<T> fact, factinv;\n    combination(int n)\
+    \ {\n        fact.resize(n + 1);\n        factinv.resize(n + 1);\n        fact[0]\
+    \ = 1;\n        for (int i = 1; i <= n; i++) {\n            fact[i] = fact[i -\
+    \ 1] * i;\n        }\n        for (int i = 0; i <= n; i++) {\n            factinv[i]\
+    \ = fact[i].inv();\n        }\n    }\n    T nCr(long long n, long long r) {\n\
+    \        if (n < 0 || r < 0 || n - r < 0) {\n            return 0;\n        }\n\
+    \        return fact[n] * factinv[r] * factinv[n - r];\n    }\n    T nPr(long\
+    \ long n, long long r) {\n        if (n < 0 || r < 0 || n - r < 0) {\n       \
+    \     return 0;\n        }\n        return fact[n] * factinv[n - r];\n    }\n\
+    };\n"
+  code: "#include <iostream>\n\n/**\n * @brief Modint\n */\n\ntemplate <long long\
+    \ MOD>\nstruct modint {\n    long long value;\n    modint(long long x = 0) {\n\
+    \        if (x >= 0) {\n            value = x % MOD;\n        } else {\n     \
+    \       value = MOD - (-x) % MOD;\n        }\n    }\n    modint operator-() const\
+    \ {\n        return modint(-value);\n    }\n    modint operator+() const {\n \
+    \       return modint(*this);\n    }\n    modint &operator+=(const modint &other)\
+    \ {\n        value += other.value;\n        if (value >= MOD) {\n            value\
+    \ -= MOD;\n        }\n        return *this;\n    }\n    modint &operator-=(const\
+    \ modint &other) {\n        value += MOD - other.value;\n        if (value >=\
+    \ MOD) {\n            value -= MOD;\n        }\n        return *this;\n    }\n\
+    \    modint &operator*=(const modint other) {\n        value = value * other.value\
+    \ % MOD;\n        return *this;\n    }\n    modint &operator/=(modint other) {\n\
+    \        (*this) *= other.inv();\n        return *this;\n    }\n    modint operator+(const\
+    \ modint &other) const {\n        return modint(*this) += other;\n    }\n    modint\
+    \ operator-(const modint &other) const {\n        return modint(*this) -= other;\n\
+    \    }\n    modint operator*(const modint &other) const {\n        return modint(*this)\
+    \ *= other;\n    }\n    modint operator/(const modint &other) const {\n      \
+    \  return modint(*this) /= other;\n    }\n    modint pow(long long x) const {\n\
+    \        modint ret(1), mul(value);\n        while (x > 0) {\n            if (x\
+    \ % 2 == 1) {\n                ret *= mul;\n            }\n            mul *=\
+    \ mul;\n            x /= 2;\n        }\n        return ret;\n    }\n    modint\
+    \ inv() const {\n        return pow(MOD - 2);\n    }\n    bool operator==(const\
+    \ modint &other) const {\n        return value == other.value;\n    }\n    bool\
+    \ operator!=(const modint &other) const {\n        return value != other.value;\n\
+    \    }\n    friend std::ostream &operator<<(std::ostream &os, const modint &x)\
+    \ {\n        return os << x.value;\n    }\n    friend std::istream &operator>>(std::istream\
+    \ &is, modint &x) {\n        long long v;\n        is >> v;\n        x = modint<MOD>(v);\n\
+    \        return is;\n    }\n};\nusing mod998 = modint<998244353>;\nusing mod107\
+    \ = modint<1000000007>;\n\n#include <vector>\n\n/**\n * @brief Combination\n */\n\
+    \ntemplate <typename T>\nstruct combination {\n    std::vector<T> fact, factinv;\n\
+    \    combination(int n) {\n        fact.resize(n + 1);\n        factinv.resize(n\
+    \ + 1);\n        fact[0] = 1;\n        for (int i = 1; i <= n; i++) {\n      \
+    \      fact[i] = fact[i - 1] * i;\n        }\n        for (int i = 0; i <= n;\
+    \ i++) {\n            factinv[i] = fact[i].inv();\n        }\n    }\n    T nCr(long\
+    \ long n, long long r) {\n        if (n < 0 || r < 0 || n - r < 0) {\n       \
+    \     return 0;\n        }\n        return fact[n] * factinv[r] * factinv[n -\
+    \ r];\n    }\n    T nPr(long long n, long long r) {\n        if (n < 0 || r <\
+    \ 0 || n - r < 0) {\n            return 0;\n        }\n        return fact[n]\
+    \ * factinv[n - r];\n    }\n};\n"
+  dependsOn: []
   isVerificationFile: false
   path: mod/mod_combination.cpp
   requiredBy: []
-  timestamp: '2023-12-15 01:46:07+09:00'
+  timestamp: '2024-01-25 11:55:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: mod/mod_combination.cpp
@@ -72,5 +100,5 @@ layout: document
 redirect_from:
 - /library/mod/mod_combination.cpp
 - /library/mod/mod_combination.cpp.html
-title: Combination
+title: Modint
 ---

@@ -1,10 +1,7 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy:
-  - icon: ':warning:'
-    path: algorithm/inversion_number.cpp
-    title: Inversion Number
+  _extendedRequiredBy: []
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/data_structure/fenwick_tree/fenwick_tree.test.cpp
@@ -21,29 +18,30 @@ data:
     links: []
   bundledCode: "#line 1 \"data_structure/fenwick_tree.cpp\"\n#include <vector>\r\n\
     \r\n/**\r\n * @brief Fenwick Tree\r\n * @docs docs/data_structure/fenwick_tree.md\r\
-    \n */\r\n\r\ntemplate <typename T>\r\nstruct fenwick_tree {\r\n\tfenwick_tree(int\
-    \ n) {\r\n\t\tthis->n = n;\r\n\t\tdat.resize(n);\r\n\t}\r\n\tvoid add(int i, T\
-    \ x) {\r\n\t\ti++;\r\n\t\twhile (i <= n) {\r\n\t\t\tdat[i - 1] += x;\r\n\t\t\t\
-    i += i & -i;\r\n\t\t}\r\n\t}\r\n\tT operator[](int i) {\r\n\t\treturn sum(i, i\
-    \ + 1);\r\n\t}\r\n\tT sum(int l, int r) {\r\n\t\treturn sum(r) - sum(l);\r\n\t\
-    }\r\n\r\n\tprivate:\r\n\tint n;\r\n\tstd::vector<T> dat;\r\n\tT sum(int r) {\r\
-    \n\t\tT ret = 0;\r\n\t\twhile (r > 0) {\r\n\t\t\tret += dat[r - 1];\r\n\t\t\t\
-    r -= r & -r;\r\n\t\t}\r\n\t\treturn ret;\r\n\t}\r\n};\n"
+    \n */\r\n\r\ntemplate <typename T>\r\nstruct fenwick_tree {\r\n    fenwick_tree(int\
+    \ n) {\r\n        this->n = n;\r\n        dat.resize(n);\r\n    }\r\n    void\
+    \ add(int i, T x) {\r\n        i++;\r\n        while (i <= n) {\r\n          \
+    \  dat[i - 1] += x;\r\n            i += i & -i;\r\n        }\r\n    }\r\n    T\
+    \ operator[](int i) {\r\n        return sum(i, i + 1);\r\n    }\r\n    T sum(int\
+    \ l, int r) {\r\n        return sum(r) - sum(l);\r\n    }\r\n\r\nprivate:\r\n\
+    \    int n;\r\n    std::vector<T> dat;\r\n    T sum(int r) {\r\n        T ret\
+    \ = 0;\r\n        while (r > 0) {\r\n            ret += dat[r - 1];\r\n      \
+    \      r -= r & -r;\r\n        }\r\n        return ret;\r\n    }\r\n};\n"
   code: "#include <vector>\r\n\r\n/**\r\n * @brief Fenwick Tree\r\n * @docs docs/data_structure/fenwick_tree.md\r\
-    \n */\r\n\r\ntemplate <typename T>\r\nstruct fenwick_tree {\r\n\tfenwick_tree(int\
-    \ n) {\r\n\t\tthis->n = n;\r\n\t\tdat.resize(n);\r\n\t}\r\n\tvoid add(int i, T\
-    \ x) {\r\n\t\ti++;\r\n\t\twhile (i <= n) {\r\n\t\t\tdat[i - 1] += x;\r\n\t\t\t\
-    i += i & -i;\r\n\t\t}\r\n\t}\r\n\tT operator[](int i) {\r\n\t\treturn sum(i, i\
-    \ + 1);\r\n\t}\r\n\tT sum(int l, int r) {\r\n\t\treturn sum(r) - sum(l);\r\n\t\
-    }\r\n\r\n\tprivate:\r\n\tint n;\r\n\tstd::vector<T> dat;\r\n\tT sum(int r) {\r\
-    \n\t\tT ret = 0;\r\n\t\twhile (r > 0) {\r\n\t\t\tret += dat[r - 1];\r\n\t\t\t\
-    r -= r & -r;\r\n\t\t}\r\n\t\treturn ret;\r\n\t}\r\n};"
+    \n */\r\n\r\ntemplate <typename T>\r\nstruct fenwick_tree {\r\n    fenwick_tree(int\
+    \ n) {\r\n        this->n = n;\r\n        dat.resize(n);\r\n    }\r\n    void\
+    \ add(int i, T x) {\r\n        i++;\r\n        while (i <= n) {\r\n          \
+    \  dat[i - 1] += x;\r\n            i += i & -i;\r\n        }\r\n    }\r\n    T\
+    \ operator[](int i) {\r\n        return sum(i, i + 1);\r\n    }\r\n    T sum(int\
+    \ l, int r) {\r\n        return sum(r) - sum(l);\r\n    }\r\n\r\nprivate:\r\n\
+    \    int n;\r\n    std::vector<T> dat;\r\n    T sum(int r) {\r\n        T ret\
+    \ = 0;\r\n        while (r > 0) {\r\n            ret += dat[r - 1];\r\n      \
+    \      r -= r & -r;\r\n        }\r\n        return ret;\r\n    }\r\n};"
   dependsOn: []
   isVerificationFile: false
   path: data_structure/fenwick_tree.cpp
-  requiredBy:
-  - algorithm/inversion_number.cpp
-  timestamp: '2023-12-24 07:38:27+09:00'
+  requiredBy: []
+  timestamp: '2024-01-25 11:55:24+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
   - test/data_structure/fenwick_tree/fenwick_tree.test.cpp
