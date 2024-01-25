@@ -26,17 +26,21 @@ data:
     \ }\n    }\n    void apply(int l, int r, U x) {\n        apply(l, r, 0, x, 0,\
     \ n);\n    }\n    T query(int l, int r) {\n        return query(l, r, 0, 0, n);\n\
     \    }\n    T operator[](int i) {\n        return query(i, i + 1, 0, 0, n);\n\
-    \    }\n\nprivate:\n    int n;\n    std::vector<T> dat;\n    std::vector<U> lazy;\n\
-    \    using F = std::function<T(T, T)>;\n    using G = std::function<T(U, T)>;\n\
-    \    using H = std::function<U(U, U)>;\n    F f;\n    G g;\n    H h;\n    T et;\n\
-    \    U eu;\n    void evaluate(int i) {\n        if (lazy[i] == eu) {\n       \
-    \     return;\n        }\n        if (i < n - 1) {\n            lazy[i * 2 + 1]\
-    \ = h(lazy[i], lazy[i * 2 + 1]);\n            lazy[i * 2 + 2] = h(lazy[i], lazy[i\
-    \ * 2 + 2]);\n        }\n        dat[i] = g(lazy[i], dat[i]);\n        lazy[i]\
-    \ = eu;\n    }\n    void apply(int left, int right, int i, U x, int l, int r)\
-    \ {\n        evaluate(i);\n        if (left <= l && r <= right) {\n          \
-    \  lazy[i] = h(x, lazy[i]);\n            evaluate(i);\n        } else if (left\
-    \ < r && l < right) {\n            int mid = (l + r) / 2;\n            apply(left,\
+    \    }\n    friend std::ostream &operator<<(ostream &os, segment_tree_lazy A)\
+    \ {\n        int n = A.n;\n        os << \"[ \";\n        for (int i = 0; i <\
+    \ n; i++) {\n            os << A[i];\n            if (i != n - 1) {\n        \
+    \        os << \", \";\n            }\n        }\n        os << \" ]\";\n    \
+    \    return os;\n    }\n\nprivate:\n    int n;\n    std::vector<T> dat;\n    std::vector<U>\
+    \ lazy;\n    using F = std::function<T(T, T)>;\n    using G = std::function<T(U,\
+    \ T)>;\n    using H = std::function<U(U, U)>;\n    F f;\n    G g;\n    H h;\n\
+    \    T et;\n    U eu;\n    void evaluate(int i) {\n        if (lazy[i] == eu)\
+    \ {\n            return;\n        }\n        if (i < n - 1) {\n            lazy[i\
+    \ * 2 + 1] = h(lazy[i], lazy[i * 2 + 1]);\n            lazy[i * 2 + 2] = h(lazy[i],\
+    \ lazy[i * 2 + 2]);\n        }\n        dat[i] = g(lazy[i], dat[i]);\n       \
+    \ lazy[i] = eu;\n    }\n    void apply(int left, int right, int i, U x, int l,\
+    \ int r) {\n        evaluate(i);\n        if (left <= l && r <= right) {\n   \
+    \         lazy[i] = h(x, lazy[i]);\n            evaluate(i);\n        } else if\
+    \ (left < r && l < right) {\n            int mid = (l + r) / 2;\n            apply(left,\
     \ right, i * 2 + 1, x, l, mid);\n            apply(left, right, i * 2 + 2, x,\
     \ mid, r);\n            dat[i] = f(dat[i * 2 + 1], dat[i * 2 + 2]);\n        }\n\
     \    }\n    T query(int left, int right, int i, int l, int r) {\n        evaluate(i);\n\
@@ -61,7 +65,11 @@ data:
     \ 1], dat[i * 2 + 2]);\n        }\n    }\n    void apply(int l, int r, U x) {\n\
     \        apply(l, r, 0, x, 0, n);\n    }\n    T query(int l, int r) {\n      \
     \  return query(l, r, 0, 0, n);\n    }\n    T operator[](int i) {\n        return\
-    \ query(i, i + 1, 0, 0, n);\n    }\n\nprivate:\n    int n;\n    std::vector<T>\
+    \ query(i, i + 1, 0, 0, n);\n    }\n    friend std::ostream &operator<<(ostream\
+    \ &os, segment_tree_lazy A) {\n        int n = A.n;\n        os << \"[ \";\n \
+    \       for (int i = 0; i < n; i++) {\n            os << A[i];\n            if\
+    \ (i != n - 1) {\n                os << \", \";\n            }\n        }\n  \
+    \      os << \" ]\";\n        return os;\n    }\n\nprivate:\n    int n;\n    std::vector<T>\
     \ dat;\n    std::vector<U> lazy;\n    using F = std::function<T(T, T)>;\n    using\
     \ G = std::function<T(U, T)>;\n    using H = std::function<U(U, U)>;\n    F f;\n\
     \    G g;\n    H h;\n    T et;\n    U eu;\n    void evaluate(int i) {\n      \
@@ -84,7 +92,7 @@ data:
   isVerificationFile: false
   path: data_structure/segment_tree_lazy.cpp
   requiredBy: []
-  timestamp: '2024-01-25 11:55:24+09:00'
+  timestamp: '2024-01-25 12:07:26+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: data_structure/segment_tree_lazy.cpp

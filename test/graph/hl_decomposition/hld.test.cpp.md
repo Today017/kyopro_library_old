@@ -60,7 +60,7 @@ data:
     \n    }\r\n    void dfs2(int now, int pre = -1) {\r\n        parent[now] = pre;\r\
     \n        for (int nxt : G[now]) {\r\n            if (nxt == pre) {\r\n      \
     \          continue;\r\n            }\r\n            depth[nxt] = depth[now] +\
-    \ 1;\r\n            dfs2(nxt, now);\r\n        }\r\n    }\r\n};\r\n#line 2 \"\
+    \ 1;\r\n            dfs2(nxt, now);\r\n        }\r\n    }\r\n};\r\n#line 3 \"\
     data_structure/fenwick_tree.cpp\"\n\r\n/**\r\n * @brief Fenwick Tree\r\n * @docs\
     \ docs/data_structure/fenwick_tree.md\r\n */\r\n\r\ntemplate <typename T>\r\n\
     struct fenwick_tree {\r\n    fenwick_tree(int n) {\r\n        this->n = n;\r\n\
@@ -68,10 +68,14 @@ data:
     \n        while (i <= n) {\r\n            dat[i - 1] += x;\r\n            i +=\
     \ i & -i;\r\n        }\r\n    }\r\n    T operator[](int i) {\r\n        return\
     \ sum(i, i + 1);\r\n    }\r\n    T sum(int l, int r) {\r\n        return sum(r)\
-    \ - sum(l);\r\n    }\r\n\r\nprivate:\r\n    int n;\r\n    std::vector<T> dat;\r\
-    \n    T sum(int r) {\r\n        T ret = 0;\r\n        while (r > 0) {\r\n    \
-    \        ret += dat[r - 1];\r\n            r -= r & -r;\r\n        }\r\n     \
-    \   return ret;\r\n    }\r\n};\n#line 7 \"test/graph/hl_decomposition/hld.test.cpp\"\
+    \ - sum(l);\r\n    }\r\n    friend std::ostream &operator<<(ostream &os, fenwick_tree\
+    \ A) {\r\n        int n = A.n;\r\n        os << \"[ \";\r\n        for (int i\
+    \ = 0; i < n; i++) {\r\n            os << A[i];\r\n            if (i != n - 1)\
+    \ {\r\n                os << \", \";\r\n            }\r\n        }\r\n       \
+    \ os << \" ]\";\r\n        return os;\r\n    }\r\n\r\nprivate:\r\n    int n;\r\
+    \n    std::vector<T> dat;\r\n    T sum(int r) {\r\n        T ret = 0;\r\n    \
+    \    while (r > 0) {\r\n            ret += dat[r - 1];\r\n            r -= r &\
+    \ -r;\r\n        }\r\n        return ret;\r\n    }\r\n};\n#line 7 \"test/graph/hl_decomposition/hld.test.cpp\"\
     \n\nint main() {\n\tint N, Q;\n\tcin >> N >> Q;\n\n\tfenwick_tree<long long> ft(N);\n\
     \theavy_light_decomposition hld(N);\n\n\tvector<int> A(N);\n\tfor (int i = 0;\
     \ i < N; i++) {\n\t\tcin >> A[i];\n\t}\n\tfor (int i = 0; i < N - 1; i++) {\n\t\
@@ -107,7 +111,7 @@ data:
   isVerificationFile: true
   path: test/graph/hl_decomposition/hld.test.cpp
   requiredBy: []
-  timestamp: '2024-01-25 11:55:24+09:00'
+  timestamp: '2024-01-25 12:07:26+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/hl_decomposition/hld.test.cpp

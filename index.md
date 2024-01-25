@@ -110,7 +110,7 @@ data:
       title: Dynamic Modint
     - icon: ':warning:'
       path: mod/mod_combination.cpp
-      title: Modint
+      title: Combination
     - icon: ':warning:'
       path: mod/modint.cpp
       title: Modint
