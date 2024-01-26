@@ -4,6 +4,7 @@
 
 /**
  * @brief Strongly Connected Components Decomposition
+ * @docs docs/graph/scc.md
  */
 
 std::tuple<std::vector<std::vector<int>>, std::vector<std::vector<int>>, std::vector<int>> strongly_connected_components_decomposition(const std::vector<std::vector<int>> &G) {
