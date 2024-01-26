@@ -1,4 +1,4 @@
-#include "kyopro_library/mod/modint.cpp"
+#include "mod/modint.cpp"
 #include <vector>
 
 /**
