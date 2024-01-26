@@ -1,6 +1,9 @@
 ---
 data:
-  _extendedDependsOn: []
+  _extendedDependsOn:
+  - icon: ':heavy_check_mark:'
+    path: data_structure/fenwick_tree.cpp
+    title: Fenwick Tree
   _extendedRequiredBy: []
   _extendedVerifiedWith: []
   _isVerificationFailed: false
@@ -9,29 +12,39 @@ data:
   attributes:
     document_title: Inversion Number
     links: []
-  bundledCode: "Traceback (most recent call last):\n  File \"/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/onlinejudge_verify/documentation/build.py\"\
-    , line 71, in _render_source_code_stat\n    bundled_code = language.bundle(stat.path,\
-    \ basedir=basedir, options={'include_paths': [basedir]}).decode()\n          \
-    \         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n\
-    \  File \"/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus.py\"\
-    , line 187, in bundle\n    bundler.update(path)\n  File \"/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 401, in update\n    self.update(self._resolve(pathlib.Path(included), included_from=path))\n\
-    \                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n \
-    \ File \"/opt/hostedtoolcache/Python/3.12.1/x64/lib/python3.12/site-packages/onlinejudge_verify/languages/cplusplus_bundle.py\"\
-    , line 260, in _resolve\n    raise BundleErrorAt(path, -1, \"no such header\"\
-    )\nonlinejudge_verify.languages.cplusplus_bundle.BundleErrorAt: kyopro_library/data_structure/fenwick_tree.cpp:\
-    \ line -1: no such header\n"
-  code: "#include <vector>\r\n#include \"kyopro_library/data_structure/fenwick_tree.cpp\"\
-    \r\n\r\n/**\r\n * @brief Inversion Number\r\n */\r\n\r\nlong long inversion_number(const\
+  bundledCode: "#line 1 \"algorithm/inversion_number.cpp\"\n#include <vector>\r\n\
+    #line 2 \"data_structure/fenwick_tree.cpp\"\n#include <iostream>\r\n\r\n/**\r\n\
+    \ * @brief Fenwick Tree\r\n * @docs docs/data_structure/fenwick_tree.md\r\n */\r\
+    \n\r\ntemplate <typename T>\r\nstruct fenwick_tree {\r\n    fenwick_tree(int n)\
+    \ {\r\n        this->n = n;\r\n        dat.resize(n);\r\n    }\r\n    void add(int\
+    \ i, T x) {\r\n        i++;\r\n        while (i <= n) {\r\n            dat[i -\
+    \ 1] += x;\r\n            i += i & -i;\r\n        }\r\n    }\r\n    T operator[](int\
+    \ i) {\r\n        return sum(i, i + 1);\r\n    }\r\n    T sum(int l, int r) {\r\
+    \n        return sum(r) - sum(l);\r\n    }\r\n    friend std::ostream &operator<<(ostream\
+    \ &os, fenwick_tree A) {\r\n        int n = A.n;\r\n        os << \"[ \";\r\n\
+    \        for (int i = 0; i < n; i++) {\r\n            os << A[i];\r\n        \
+    \    if (i != n - 1) {\r\n                os << \", \";\r\n            }\r\n \
+    \       }\r\n        os << \" ]\";\r\n        return os;\r\n    }\r\n\r\nprivate:\r\
+    \n    int n;\r\n    std::vector<T> dat;\r\n    T sum(int r) {\r\n        T ret\
+    \ = 0;\r\n        while (r > 0) {\r\n            ret += dat[r - 1];\r\n      \
+    \      r -= r & -r;\r\n        }\r\n        return ret;\r\n    }\r\n};\n#line\
+    \ 3 \"algorithm/inversion_number.cpp\"\n\r\n/**\r\n * @brief Inversion Number\r\
+    \n */\r\n\r\nlong long inversion_number(const std::vector<int> &A) {\r\n    int\
+    \ n = A.size();\r\n    fenwick_tree<int> ft(n);\r\n    long long ret = 0;\r\n\
+    \    for (int i = 0; i < n; i++) {\r\n        ret += i - ft.sum(0, A[i]);\r\n\
+    \        ft.add(A[i], 1);\r\n    }\r\n    return ret;\r\n}\r\n"
+  code: "#include <vector>\r\n#include \"data_structure/fenwick_tree.cpp\"\r\n\r\n\
+    /**\r\n * @brief Inversion Number\r\n */\r\n\r\nlong long inversion_number(const\
     \ std::vector<int> &A) {\r\n    int n = A.size();\r\n    fenwick_tree<int> ft(n);\r\
     \n    long long ret = 0;\r\n    for (int i = 0; i < n; i++) {\r\n        ret +=\
     \ i - ft.sum(0, A[i]);\r\n        ft.add(A[i], 1);\r\n    }\r\n    return ret;\r\
     \n}\r\n"
-  dependsOn: []
+  dependsOn:
+  - data_structure/fenwick_tree.cpp
   isVerificationFile: false
   path: algorithm/inversion_number.cpp
   requiredBy: []
-  timestamp: '1970-01-01 00:00:00+00:00'
+  timestamp: '2024-01-26 15:22:10+09:00'
   verificationStatus: LIBRARY_NO_TESTS
   verifiedWith: []
 documentation_of: algorithm/inversion_number.cpp

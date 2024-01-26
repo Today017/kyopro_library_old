@@ -3,6 +3,9 @@ data:
   _extendedDependsOn: []
   _extendedRequiredBy:
   - icon: ':warning:'
+    path: mod/mod_combination.cpp
+    title: Combination
+  - icon: ':warning:'
     path: string/rolling_hash.cpp
     title: Rolling Hash
   _extendedVerifiedWith: []
@@ -78,6 +81,7 @@ data:
   isVerificationFile: false
   path: mod/modint.cpp
   requiredBy:
+  - mod/mod_combination.cpp
   - string/rolling_hash.cpp
   timestamp: '2024-01-25 11:55:24+09:00'
   verificationStatus: LIBRARY_NO_TESTS

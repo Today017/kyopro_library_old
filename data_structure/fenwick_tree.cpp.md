@@ -1,7 +1,10 @@
 ---
 data:
   _extendedDependsOn: []
-  _extendedRequiredBy: []
+  _extendedRequiredBy:
+  - icon: ':warning:'
+    path: algorithm/inversion_number.cpp
+    title: Inversion Number
   _extendedVerifiedWith:
   - icon: ':heavy_check_mark:'
     path: test/data_structure/fenwick_tree/fenwick_tree.test.cpp
@@ -50,7 +53,8 @@ data:
   dependsOn: []
   isVerificationFile: false
   path: data_structure/fenwick_tree.cpp
-  requiredBy: []
+  requiredBy:
+  - algorithm/inversion_number.cpp
   timestamp: '2024-01-25 12:07:26+09:00'
   verificationStatus: LIBRARY_ALL_AC
   verifiedWith:
