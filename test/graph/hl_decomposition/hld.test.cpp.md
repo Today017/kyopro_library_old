@@ -68,27 +68,28 @@ data:
     \n        while (i <= n) {\r\n            dat[i - 1] += x;\r\n            i +=\
     \ i & -i;\r\n        }\r\n    }\r\n    T operator[](int i) {\r\n        return\
     \ sum(i, i + 1);\r\n    }\r\n    T sum(int l, int r) {\r\n        return sum(r)\
-    \ - sum(l);\r\n    }\r\n    friend std::ostream &operator<<(ostream &os, fenwick_tree\
-    \ A) {\r\n        int n = A.n;\r\n        os << \"[ \";\r\n        for (int i\
-    \ = 0; i < n; i++) {\r\n            os << A[i];\r\n            if (i != n - 1)\
-    \ {\r\n                os << \", \";\r\n            }\r\n        }\r\n       \
-    \ os << \" ]\";\r\n        return os;\r\n    }\r\n\r\nprivate:\r\n    int n;\r\
-    \n    std::vector<T> dat;\r\n    T sum(int r) {\r\n        T ret = 0;\r\n    \
-    \    while (r > 0) {\r\n            ret += dat[r - 1];\r\n            r -= r &\
-    \ -r;\r\n        }\r\n        return ret;\r\n    }\r\n};\n#line 7 \"test/graph/hl_decomposition/hld.test.cpp\"\
-    \n\nint main() {\n\tint N, Q;\n\tcin >> N >> Q;\n\n\tfenwick_tree<long long> ft(N);\n\
-    \theavy_light_decomposition hld(N);\n\n\tvector<int> A(N);\n\tfor (int i = 0;\
-    \ i < N; i++) {\n\t\tcin >> A[i];\n\t}\n\tfor (int i = 0; i < N - 1; i++) {\n\t\
-    \tint u, v;\n\t\tcin >> u >> v;\n\t\thld.add_edge(u, v);\n\t}\n\n\thld.hld_start();\n\
-    \tfor (int i = 0; i < N; i++) {\n\t\tauto Update = [&](int i, int pos) {\n\t\t\
-    \tft.add(pos, A[i]);\n\t\t};\n\t\thld.update(i, Update);\n\t}\n\n\twhile (Q--)\
-    \ {\n\t\tint t;\n\t\tcin >> t;\n\n\t\tif (t == 0) {\n\t\t\tint p, x;\n\t\t\tcin\
-    \ >> p >> x;\n\n\t\t\tauto Update = [&](int i, int pos) {\n\t\t\t\tft.add(pos,\
-    \ x);\n\t\t\t};\n\n\t\t\thld.update(p, Update);\n\t\t}\n\n\t\telse {\n\t\t\tint\
-    \ u, v;\n\t\t\tcin >> u >> v;\n\n\t\t\tauto Query = [&](int x, int y) {\n\t\t\t\
-    \treturn ft.sum(x, y);\n\t\t\t};\n\t\t\tauto F = [&](long long a, long long b)\
-    \ {\n\t\t\t\treturn a + b;\n\t\t\t};\n\t\t\tlong long e = 0;\n\n\t\t\tcout <<\
-    \ hld.query(u, v, Query, F, e) << '\\n';\n\t\t}\n\t}\n}\n"
+    \ - sum(l);\r\n    }\r\n    friend std::ostream &operator<<(std::ostream &os,\
+    \ fenwick_tree A) {\r\n        int n = A.n;\r\n        os << \"[ \";\r\n     \
+    \   for (int i = 0; i < n; i++) {\r\n            os << A[i];\r\n            if\
+    \ (i != n - 1) {\r\n                os << \", \";\r\n            }\r\n       \
+    \ }\r\n        os << \" ]\";\r\n        return os;\r\n    }\r\n\r\nprivate:\r\n\
+    \    int n;\r\n    std::vector<T> dat;\r\n    T sum(int r) {\r\n        T ret\
+    \ = 0;\r\n        while (r > 0) {\r\n            ret += dat[r - 1];\r\n      \
+    \      r -= r & -r;\r\n        }\r\n        return ret;\r\n    }\r\n};\n#line\
+    \ 7 \"test/graph/hl_decomposition/hld.test.cpp\"\n\nint main() {\n\tint N, Q;\n\
+    \tcin >> N >> Q;\n\n\tfenwick_tree<long long> ft(N);\n\theavy_light_decomposition\
+    \ hld(N);\n\n\tvector<int> A(N);\n\tfor (int i = 0; i < N; i++) {\n\t\tcin >>\
+    \ A[i];\n\t}\n\tfor (int i = 0; i < N - 1; i++) {\n\t\tint u, v;\n\t\tcin >> u\
+    \ >> v;\n\t\thld.add_edge(u, v);\n\t}\n\n\thld.hld_start();\n\tfor (int i = 0;\
+    \ i < N; i++) {\n\t\tauto Update = [&](int i, int pos) {\n\t\t\tft.add(pos, A[i]);\n\
+    \t\t};\n\t\thld.update(i, Update);\n\t}\n\n\twhile (Q--) {\n\t\tint t;\n\t\tcin\
+    \ >> t;\n\n\t\tif (t == 0) {\n\t\t\tint p, x;\n\t\t\tcin >> p >> x;\n\n\t\t\t\
+    auto Update = [&](int i, int pos) {\n\t\t\t\tft.add(pos, x);\n\t\t\t};\n\n\t\t\
+    \thld.update(p, Update);\n\t\t}\n\n\t\telse {\n\t\t\tint u, v;\n\t\t\tcin >> u\
+    \ >> v;\n\n\t\t\tauto Query = [&](int x, int y) {\n\t\t\t\treturn ft.sum(x, y);\n\
+    \t\t\t};\n\t\t\tauto F = [&](long long a, long long b) {\n\t\t\t\treturn a + b;\n\
+    \t\t\t};\n\t\t\tlong long e = 0;\n\n\t\t\tcout << hld.query(u, v, Query, F, e)\
+    \ << '\\n';\n\t\t}\n\t}\n}\n"
   code: "#define PROBLEM \"https://judge.yosupo.jp/problem/vertex_add_path_sum\"\n\
     #include <bits/stdc++.h>\nusing namespace std;\n\n#include \"../../../graph/hld.cpp\"\
     \n#include \"../../../data_structure/fenwick_tree.cpp\"\n\nint main() {\n\tint\
@@ -111,7 +112,7 @@ data:
   isVerificationFile: true
   path: test/graph/hl_decomposition/hld.test.cpp
   requiredBy: []
-  timestamp: '2024-01-25 12:07:26+09:00'
+  timestamp: '2024-01-28 02:06:50+09:00'
   verificationStatus: TEST_ACCEPTED
   verifiedWith: []
 documentation_of: test/graph/hl_decomposition/hld.test.cpp
