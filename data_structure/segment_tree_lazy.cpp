@@ -1,5 +1,8 @@
+#include <iostream>
+#include <utility>
 #include <vector>
 #include <functional>
+#include <limits>
 
 /**
  * @brief Segment Tree Lazy
@@ -47,7 +50,7 @@ struct segment_tree_lazy {
     T operator[](int i) {
         return query(i, i + 1, 0, 0, n);
     }
-    friend std::ostream &operator<<(ostream &os, segment_tree_lazy A) {
+    friend std::ostream &operator<<(std::ostream &os, segment_tree_lazy A) {
         int n = A.n;
         os << "[ ";
         for (int i = 0; i < n; i++) {
@@ -107,3 +110,96 @@ private:
         }
     }
 };
+
+template <typename T, typename U>
+segment_tree_lazy<T, U> range_add_range_min(int n) {
+    const T et = std::numeric_limits<T>::max();
+    const U eu = 0;
+    auto f = [](T a, T b) {
+        return std::min(a, b);
+    };
+    auto g = [](U f, T x) {
+        return f + x;
+    };
+    auto h = [](U f, U g) {
+        return f + g;
+    };
+    return segment_tree_lazy<T, U>(n, f, g, h, et, eu);
+}
+
+template <typename T, typename U>
+segment_tree_lazy<T, U> range_add_range_max(int n) {
+    const T et = std::numeric_limits<T>::min();
+    const U eu = 0;
+    auto f = [](T a, T b) {
+        return std::max(a, b);
+    };
+    auto g = [](U f, T x) {
+        return f + x;
+    };
+    auto h = [](U f, U g) {
+        return f + g;
+    };
+    return segment_tree_lazy<T, U>(n, f, g, h, et, eu);
+}
+
+template <typename T, typename U>
+segment_tree_lazy<std::pair<T, int>, U> range_add_range_sum(int n) {
+    using T2 = std::pair<T, int>;
+    const T2 et = std::make_pair(T(0), 0);
+    const U eu = 0;
+    auto f = [](T2 a, T2 b) {
+        return std::make_pair(a.first + b.first, a.second + b.second);
+    };
+    auto g = [](U f, T2 x) {
+        return std::make_pair(x.first + (T)f * x.second, x.second);
+    };
+    auto h = [](U f, U g) {
+        return f + g;
+    };
+    return segment_tree_lazy<T2, U>(n, f, g, h, et, eu);
+}
+
+template <typename T>
+segment_tree_lazy<T, T> range_update_range_min(int n, T eu = std::numeric_limits<T>::max()) {
+    const T et = std::numeric_limits<T>::max();
+    auto f = [](T a, T b) {
+        return std::min(a, b);
+    };
+    auto g = [eu](T f, T x) {
+        if (f == eu) return x;
+        return f;
+    };
+    return segment_tree_lazy<T, T>(n, f, g, g, et, eu);
+}
+
+template <typename T>
+segment_tree_lazy<T, T> range_update_range_max(int n, T eu = std::numeric_limits<T>::max()) {
+    const T et = std::numeric_limits<T>::min();
+    auto f = [](T a, T b) {
+        return std::max(a, b);
+    };
+    auto g = [eu](T f, T x) {
+        if (f == eu) return x;
+        return f;
+    };
+    return segment_tree_lazy<T, T>(n, f, g, g, et, eu);
+}
+
+template <typename T>
+segment_tree_lazy<std::pair<T, int>, T> range_update_range_sum(int n, T eu = std::numeric_limits<T>::max()) {
+    using T2 = std::pair<T, int>;
+    const T2 et = std::make_pair(T(0), 0);
+    auto f = [](T2 a, T2 b) {
+        return std::make_pair(a.first + b.first, a.second + b.second);
+    };
+    auto g = [eu](T f, T2 x) {
+        if (f == eu) return x;
+        return std::make_pair(f * x.second, x.second);
+    };
+    auto h = [eu](T f, T g) {
+        if (f == eu) return g;
+        return f;
+    };
+    return segment_tree_lazy<T, T>(n, f, g, h, et, eu);
+}
