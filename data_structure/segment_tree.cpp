@@ -1,3 +1,4 @@
+#include <iostream>
 #include <vector>
 #include <functional>
 #include <limits>
@@ -40,7 +41,7 @@ struct segment_tree {
     T operator[](int i) {
         return dat[n - 1 + i];
     }
-    friend std::ostream &operator<<(ostream &os, segment_tree A) {
+    friend std::ostream &operator<<(std::ostream &os, segment_tree A) {
         int n = A.n;
         os << "[ ";
         for (int i = 0; i < n; i++) {
@@ -71,26 +72,26 @@ private:
     }
 };
 
-template <typename U>
-segment_tree<U> range_min_query(int n, U e = std::numeric_limits<U>::max()) {
-    auto f = [](U a, U b) {
+template <typename T>
+segment_tree<T> range_min_query(int n, T e = std::numeric_limits<T>::max()) {
+    auto f = [](T a, T b) {
         return std::min(a, b);
     };
-    return segment_tree<U>(n, f, e);
+    return segment_tree<T>(n, f, e);
 }
 
-template <typename U>
-segment_tree<U> range_max_query(int n, U e = std::numeric_limits<U>::min()) {
-    auto f = [](U a, U b) {
+template <typename T>
+segment_tree<T> range_max_query(int n, T e = std::numeric_limits<T>::min()) {
+    auto f = [](T a, T b) {
         return std::max(a, b);
     };
-    return segment_tree<U>(n, f, e);
+    return segment_tree<T>(n, f, e);
 }
 
-template <typename U>
-segment_tree<U> range_sum_query(int n, U e = 0) {
-    auto f = [](U a, U b) {
+template <typename T>
+segment_tree<T> range_sum_query(int n, T e = 0) {
+    auto f = [](T a, T b) {
         return a + b;
     };
-    return segment_tree<U>(n, f, e);
+    return segment_tree<T>(n, f, e);
 }
